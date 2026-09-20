@@ -10,9 +10,8 @@ from fastapi.responses import JSONResponse
 from app.api.v1.endpoints import health
 from app.api.v1.router import api_v1_router
 from app.core.config import get_settings
-from app.schemas.error import ErrorBody, ErrorResponse
-
 from app.db.session import init_db
+from app.schemas.error import ErrorBody, ErrorResponse
 
 logger = logging.getLogger("medication_accessibility")
 settings = get_settings()
