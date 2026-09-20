@@ -54,6 +54,7 @@ def add_browser_frame(img_path: Path, title: str, target_w: int = 900, target_h:
     draw.ellipse((46, dot_y - 5, 56, dot_y + 5), fill=(40, 200, 64))
     
     # Draw Title
+    font: ImageFont.ImageFont | ImageFont.FreeTypeFont
     try:
         font = ImageFont.truetype("arial.ttf", 13)
     except Exception:
@@ -69,7 +70,7 @@ def add_browser_frame(img_path: Path, title: str, target_w: int = 900, target_h:
     
     return framed
 
-def main():
+def main() -> None:
     framed_panels = []
     panel_w, panel_h = 880, 550
     for path, title in PANELS:
@@ -88,6 +89,8 @@ def main():
     draw = ImageDraw.Draw(canvas)
     
     # Master Header text
+    title_font: ImageFont.ImageFont | ImageFont.FreeTypeFont
+    sub_font: ImageFont.ImageFont | ImageFont.FreeTypeFont
     try:
         title_font = ImageFont.truetype("arial.ttf", 24)
         sub_font = ImageFont.truetype("arial.ttf", 14)
