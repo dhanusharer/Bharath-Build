@@ -43,7 +43,7 @@ services:
       - ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000
       - AWS_REGION=ap-south-1
       - S3_BUCKET_NAME=medication-access-artifacts-dev
-      - BEDROCK_MODEL_ID=anthropic.claude-3-5-sonnet-20241022-v2:0
+      - BEDROCK_MODEL_ID=${BEDROCK_MODEL_ID:-global.amazon.nova-2-lite-v1:0}
       - SECRET_KEY=development-secret-key-replace-in-production-min-32-chars
     depends_on:
       db:

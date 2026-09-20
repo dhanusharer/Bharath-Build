@@ -58,10 +58,16 @@ python_version = "3.12"
 strict = true
 ignore_missing_imports = true
 disallow_untyped_defs = true
+files = ["app", "scripts"]
 
 [[tool.mypy.overrides]]
 module = ["boto3", "boto3.*", "botocore", "botocore.*"]
 ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["tests.*"]
+disallow_untyped_defs = false
+check_untyped_defs = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
