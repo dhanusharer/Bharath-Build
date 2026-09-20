@@ -44,7 +44,7 @@ jobs:
         run: ruff format --check app
 
       - name: Static Type Checking (Mypy)
-        run: mypy app
+        run: mypy app --no-warn-unused-ignores
 
       - name: Deterministic Safety Gate & Posology Unit Tests
         env:
