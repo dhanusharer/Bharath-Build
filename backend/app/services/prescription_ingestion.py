@@ -49,14 +49,10 @@ def map_prescription_to_response(
         med.requires_review or not med.is_verified_safe for med in prescription.medications
     )
     val_review = (
-        prescription.validation_result.requires_review
-        if prescription.validation_result
-        else False
+        prescription.validation_result.requires_review if prescription.validation_result else False
     )
     requires_review = (
-        val_review
-        or (status_enum == PrescriptionStatus.REQUIRES_REVIEW)
-        or any_med_requires_review
+        val_review or (status_enum == PrescriptionStatus.REQUIRES_REVIEW) or any_med_requires_review
     )
     if any_med_requires_review and status_enum == PrescriptionStatus.COMPLETED:
         status_enum = PrescriptionStatus.REQUIRES_REVIEW

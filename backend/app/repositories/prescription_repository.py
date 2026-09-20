@@ -107,12 +107,9 @@ class PrescriptionRepository:
 
         # 1. Update overall status based on Phase 1 safety gate & medication safety
         overall_safety = validated_prescription.overall_safety
-        all_meds_verified = (
-            len(validated_prescription.medications) > 0
-            and all(
-                m.is_verified_safe and not m.safety.requires_review
-                for m in validated_prescription.medications
-            )
+        all_meds_verified = len(validated_prescription.medications) > 0 and all(
+            m.is_verified_safe and not m.safety.requires_review
+            for m in validated_prescription.medications
         )
         if overall_safety.is_safe and not overall_safety.requires_review and all_meds_verified:
             prescription.status = PrescriptionStatus.COMPLETED.value

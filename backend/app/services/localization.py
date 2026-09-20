@@ -69,10 +69,7 @@ class TemplateLocalizationService(LocalizationPort):
                 "कृपया सुरक्षित उपयोग के लिए अपने फार्मासिस्ट या डॉक्टर से संपर्क करें।"
             )
         if "kn" in lang:
-            return (
-                "ಈ ಚೀಟಿಯಲ್ಲಿರುವ ಕೆಲವು ಮಾಹಿತಿಗಳು ಅಸ್ಪಷ್ಟವಾಗಿವೆ. "
-                "ದಯವಿಟ್ಟು ನಿಮ್ಮ ವೈದ್ಯರು ಅಥವಾ ಔಷಧ ತಜ್ಞರನ್ನು ಸಂಪರ್ಕಿಸಿ."
-            )
+            return "ಈ ಚೀಟಿಯಲ್ಲಿರುವ ಕೆಲವು ಮಾಹಿತಿಗಳು ಅಸ್ಪಷ್ಟವಾಗಿವೆ. ದಯವಿಟ್ಟು ನಿಮ್ಮ ವೈದ್ಯರು ಅಥವಾ ಔಷಧ ತಜ್ಞರನ್ನು ಸಂಪರ್ಕಿಸಿ."
         return (
             "This prescription contains unclear details. "
             "Please consult your pharmacist or doctor for verified guidance."
@@ -110,10 +107,7 @@ class TemplateLocalizationService(LocalizationPort):
                     "मैं इस पर्चे से दवा की अवधि की सुरक्षित पुष्टि नहीं कर सकता। "
                     "कृपया फार्मासिस्ट से इसकी पुष्टि करें।"
                 )
-            return (
-                "मैं इस पर्चे से दवाओं की सुरक्षित पुष्टि नहीं कर सकता। "
-                "कृपया फार्मासिस्ट से इसकी पुष्टि करें।"
-            )
+            return "मैं इस पर्चे से दवाओं की सुरक्षित पुष्टि नहीं कर सकता। कृपया फार्मासिस्ट से इसकी पुष्टि करें।"
 
         if "kn" in lang:
             if intent == VoiceIntentType.NIGHT_MEDICINE:
@@ -123,8 +117,7 @@ class TemplateLocalizationService(LocalizationPort):
                 )
             if intent == VoiceIntentType.MORNING_MEDICINE:
                 return (
-                    "ಈ ಚೀಟಿಯಿಂದ ಬೆಳಗಿನ ಔಷಧಿಯನ್ನು ನಾನು ಸುರಕ್ಷಿತವಾಗಿ ದೃಢೀಕರಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. "
-                    "ದಯವಿಟ್ಟು ಔಷಧಿಕಾರರೊಂದಿಗೆ ಪರಿಶೀಲಿಸಿ."
+                    "ಈ ಚೀಟಿಯಿಂದ ಬೆಳಗಿನ ಔಷಧಿಯನ್ನು ನಾನು ಸುರಕ್ಷಿತವಾಗಿ ದೃಢೀಕರಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ಔಷಧಿಕಾರರೊಂದಿಗೆ ಪರಿಶೀಲಿಸಿ."
                 )
             if intent == VoiceIntentType.BEFORE_FOOD:
                 return (
@@ -138,13 +131,9 @@ class TemplateLocalizationService(LocalizationPort):
                 )
             if intent == VoiceIntentType.DURATION:
                 return (
-                    "ಈ ಚೀಟಿಯಿಂದ ಔಷಧಿಯ ಅವಧಿಯನ್ನು ನಾನು ಸುರಕ್ಷಿತವಾಗಿ ದೃಢೀಕರಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. "
-                    "ದಯವಿಟ್ಟು ಔಷಧಿಕಾರರೊಂದಿಗೆ ಪರಿಶೀಲಿಸಿ."
+                    "ಈ ಚೀಟಿಯಿಂದ ಔಷಧಿಯ ಅವಧಿಯನ್ನು ನಾನು ಸುರಕ್ಷಿತವಾಗಿ ದೃಢೀಕರಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ಔಷಧಿಕಾರರೊಂದಿಗೆ ಪರಿಶೀಲಿಸಿ."
                 )
-            return (
-                "ಈ ಚೀಟಿಯಿಂದ ಔಷಧಿಗಳನ್ನು ನಾನು ಸುರಕ್ಷಿತವಾಗಿ ದೃಢೀಕರಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. "
-                "ದಯವಿಟ್ಟು ಔಷಧಿಕಾರರೊಂದಿಗೆ ಪರಿಶೀಲಿಸಿ."
-            )
+            return "ಈ ಚೀಟಿಯಿಂದ ಔಷಧಿಗಳನ್ನು ನಾನು ಸುರಕ್ಷಿತವಾಗಿ ದೃಢೀಕರಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ಔಷಧಿಕಾರರೊಂದಿಗೆ ಪರಿಶೀಲಿಸಿ."
 
         # Default: English
         if intent == VoiceIntentType.NIGHT_MEDICINE:
@@ -277,13 +266,11 @@ class TemplateLocalizationService(LocalizationPort):
         # Default English
         if intent == VoiceIntentType.NIGHT_MEDICINE:
             return (
-                "There are no confirmed medications scheduled for the night "
-                "on this prescription."
+                "There are no confirmed medications scheduled for the night on this prescription."
             )
         if intent == VoiceIntentType.MORNING_MEDICINE:
             return (
-                "There are no confirmed medications scheduled for the morning "
-                "on this prescription."
+                "There are no confirmed medications scheduled for the morning on this prescription."
             )
         if intent == VoiceIntentType.BEFORE_FOOD:
             return (

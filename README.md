@@ -16,40 +16,11 @@ An AI-powered, deterministic safety-first clinical accessibility command center 
 
 ---
 
-## Visual Command Center Gallery
+## Command Center Showcase
 
-### 1. Bioluminescent Hero & Floating Capsule Navigation
-*Cinematic full-bleed dark photography transitioning into crisp clinical white surfaces, featuring whisper-weight display typography and real-time AWS HealthAI telemetry.*
+*Unified 4-view clinical command center: Hero & floating capsule nav, clinical ingestion & verified posology matrix, 24-hour chronobiological bio-clock, multilingual voice studio, and transparent membership pricing ($17/month).*
 
-![Hero Section & Floating Navigation](docs/assets/screenshots/hero_telemetry.png)
-
----
-
-### 2. Clinical Command Center & Verified Posology Matrix
-*Deterministic posology table with verified strength chips, duration labels, meal relationship indicators, and safety status badges.*
-
-![Command Center & Posology Matrix](docs/assets/screenshots/posology_bioclock.png)
-
----
-
-### 3. 24-Hour Chronobiological Bio-Clock
-*Interactive dosage timeline segmenting medication intake into circadian time-of-day slots (`08:00 AM Morning`, `01:00 PM Afternoon`, `06:00 PM Evening`, `09:00 PM Night`).*
-
-![24-Hour Chronobiological Bio-Clock](docs/assets/screenshots/bioclock_windows.png)
-
----
-
-### 4. Real-Time Multilingual Voice Studio
-*Low-latency vernacular speech interaction powered by Amazon Transcribe Streaming, natural speech synthesis via Amazon Polly and Regional Kannada TTS, featuring quick prompt chips and animated equalizer waves.*
-
-![Multilingual Voice Studio](docs/assets/screenshots/voice_studio.png)
-
----
-
-### 5. Transparent Clinical Membership & Pricing
-*Superpower signature marbled Coral Glow visual card artwork ($17/month), annual billing toggle (Save 20%), and real-time USD ($) / INR (₹) currency switchers.*
-
-![Transparent Clinical Membership](docs/assets/screenshots/pricing_cards.png)
+![Superpower Bioluminescent Health Command Center Showcase](docs/assets/screenshots/command_center_showcase.png)
 
 ---
 
@@ -62,7 +33,7 @@ Across India, handwritten doctor prescriptions remain the universal medium of cl
 
 ---
 
-## 2. Solution & Architectural Invariants
+## 2. Solution & Deterministic Invariants
 
 The **Bharat Builds Medication Accessibility System** guarantees clinical safety through strict separation of perception and decision:
 
@@ -85,50 +56,48 @@ The **Bharat Builds Medication Accessibility System** guarantees clinical safety
 
 ```mermaid
 flowchart TD
-    subgraph Client ["Frontend (Next.js 14 / TypeScript / Tailwind CSS)"]
+    subgraph Client["Frontend - Next.js 14"]
         UI["Superpower Command Center UI"]
-        MIC["Microphone Capture (Web Audio)"]
-        AUD["Audio Synthesizer Player"]
-        BIO["24h Bio-Clock Timeline"]
+        MIC["Microphone Capture"]
+        AUD["Web Audio Synthesizer"]
+        BIO["24h Bio-Clock Dosage Schedule"]
     end
 
-    subgraph AWS ["AWS Cloud Infrastructure (ap-south-1)"]
-        S3["Amazon S3 Bucket\n(Encrypted Ingestion)"]
-        Bedrock["Amazon Bedrock\n(Nova 2 Lite Vision)"]
-        Transcribe["Amazon Transcribe\n(HTTP/2 Streaming STT)"]
-        Polly["Amazon Polly\n(Hindi / Indian English TTS)"]
-        Amplify["AWS Amplify Hosting\n(SSR / Edge CDN)"]
-        ECS["Amazon ECS / Fargate\n(FastAPI Microservice)"]
-        RDS["Amazon RDS PostgreSQL\n(Encrypted Metadata)"]
+    subgraph AWSCloud["AWS Cloud Infrastructure - ap-south-1"]
+        S3["Amazon S3 Bucket - Encrypted Ingestion"]
+        Bedrock["Amazon Bedrock - Nova 2 Lite Vision"]
+        Transcribe["Amazon Transcribe - HTTP/2 Streaming STT"]
+        Polly["Amazon Polly - Hindi and English Neural TTS"]
+        Amplify["AWS Amplify Hosting"]
+        ECS["Amazon ECS Fargate - FastAPI Container"]
+        RDS["Amazon RDS PostgreSQL - Encrypted Metadata"]
     end
 
-    subgraph Backend ["Backend API (FastAPI / Python 3.12)"]
-        Ingest["Ingestion Controller"]
-        SafetyGate["Deterministic Safety Gate\n(Confidence & Rule Validation)"]
-        Normalizer["Posology Normalizer\n(Metric & Timing Map)"]
+    subgraph BackendAPI["Backend Core - FastAPI & Deterministic Safety Gate"]
+        Ingest["Prescription Ingestion Controller"]
+        SafetyGate["Deterministic Safety Gate Engine"]
+        Normalizer["Posology Normalizer & Metric Formatter"]
         VoiceIntent["Deterministic Voice Intent Engine"]
-        Localizer["Multilingual Localizer\n(EN / HI / KN Templates)"]
-        TTSAdapter["TTS Provider Adapter\n(Polly + Regional Kannada)"]
+        Localizer["Multilingual Localizer - EN, HI, KN"]
+        TTSAdapter["TTS Provider Adapter - Polly & Regional Kannada"]
     end
 
-    %% Ingestion Pipeline
-    UI -->|1. Multipart Upload| Ingest
-    Ingest -->|2. Encrypted PutObject| S3
-    Ingest -->|3. Multimodal Converse| Bedrock
-    Bedrock -->|4. Raw Untrusted Extraction| SafetyGate
-    SafetyGate -->|5. Fail-Closed Audit| Normalizer
-    Normalizer -->|6. Validated Prescription| RDS
-    RDS -->|7. Verified Posology JSON| UI
+    UI --> Ingest
+    Ingest --> S3
+    Ingest --> Bedrock
+    Bedrock --> SafetyGate
+    SafetyGate --> Normalizer
+    Normalizer --> RDS
+    RDS --> UI
     UI --> BIO
 
-    %% Voice Interaction Pipeline
-    MIC -->|8. Audio Stream (WAV/PCM)| Transcribe
-    Transcribe -->|9. Real-Time Transcript| VoiceIntent
-    VoiceIntent -->|10. Read Verified Posology| RDS
-    RDS -->|11. Medication Facts| Localizer
-    Localizer -->|12. Localized Script| TTSAdapter
-    TTSAdapter -->|13. Speech Synthesis| Polly
-    Polly -->|14. Audio Base64 Payload| AUD
+    MIC --> Transcribe
+    Transcribe --> VoiceIntent
+    VoiceIntent --> RDS
+    RDS --> Localizer
+    Localizer --> TTSAdapter
+    TTSAdapter --> Polly
+    Polly --> AUD
 ```
 
 ---
@@ -160,7 +129,7 @@ The repository is equipped with a professional, multi-stage GitHub Actions CI/CD
 └─────────────────┘       └─────────────────┘       └─────────────────┘       └─────────────────┘
 ```
 
-- **Backend CI**: Runs on Python 3.12 with `uv`. Enforces Ruff linting, formatting, Mypy type consistency, and executes 180 unit tests across normalization, safety gates, and voice query semantics.
+- **Backend CI**: Runs on Python 3.12. Enforces Ruff linting, formatting, Mypy type consistency, and executes 180 unit tests across normalization, safety gates, and voice query semantics.
 - **Frontend CI**: Runs on Node.js 20. Validates TypeScript types, executes all 7 safety UX tests (`npm test`), and compiles the Next.js production build (`npm run build`).
 - **Docker Verification**: Validates production Dockerfile compilation without cache anomalies.
 - **AWS Deployment Gateway**: Verifies deployment manifests on every push to `main`.
@@ -170,7 +139,7 @@ The repository is equipped with a professional, multi-stage GitHub Actions CI/CD
 ## 6. Local Development Quickstart
 
 ### Prerequisites
-* Python 3.12+ and `uv` package manager
+* Python 3.12+ and `uv` or `pip`
 * Node.js 20+ and `npm`
 * AWS Credentials with active permissions (Bedrock, Transcribe, Polly, S3)
 
@@ -185,6 +154,7 @@ uv sync
 
 # Run code quality checks
 uv run ruff check app
+uv run ruff format --check app
 uv run mypy app
 
 # Run full test suite (180 tests)

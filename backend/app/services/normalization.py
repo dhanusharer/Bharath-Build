@@ -367,9 +367,7 @@ def process_prescription(
         for vm in validated_meds
     )
     has_review_med = any(
-        vm.safety.requires_review
-        or not vm.is_verified_safe
-        or vm.normalized.requires_review
+        vm.safety.requires_review or not vm.is_verified_safe or vm.normalized.requires_review
         for vm in validated_meds
     )
 
