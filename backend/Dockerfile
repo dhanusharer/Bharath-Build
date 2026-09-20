@@ -6,8 +6,8 @@ WORKDIR /app
 # Install uv for fast dependency management
 COPY --from=ghcr.io/astral-sh/uv:0.4.18 /uv /bin/uv
 
-# Copy dependency specifications
-COPY pyproject.toml .
+# Copy dependency specifications and lockfile for deterministic installation
+COPY pyproject.toml uv.lock ./
 
 # Install dependencies using uv into a virtual environment
 RUN uv venv /opt/venv && \
@@ -42,6 +42,6 @@ USER appuser
 EXPOSE 8000
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
-    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')" || exit 1
+    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v1/health')" || exit 1
 
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

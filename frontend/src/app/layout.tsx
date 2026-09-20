@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Multimodal Medication Accessibility System",
+  title: "Superpower — Bioluminescent Health Command Center | Bharat Builds",
   description:
-    "AI-powered assistive accessibility system digitizing handwritten prescriptions with voice interaction in Hindi and Kannada.",
+    "Multimodal clinical prescription intelligence. Instant handwritten digitization, real-time vernacular voice AI in Hindi and Kannada, with deterministic clinical fail-closed safety.",
 };
 
 export default function RootLayout({
@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-slate-50 text-slate-900 antialiased">
+      <body className="min-h-screen bg-white text-[#18181b] antialiased selection:bg-[#fc5f2b]/20 selection:text-[#18181b]">
         {children}
       </body>
     </html>

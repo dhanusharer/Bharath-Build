@@ -45,11 +45,22 @@ def map_prescription_to_response(
 ) -> PrescriptionIngestionResponse:
     """Transform an ORM Prescription record into a stable contract-compliant API response."""
     status_enum = PrescriptionStatus(prescription.status)
-    requires_review = (
+    any_med_requires_review = any(
+        med.requires_review or not med.is_verified_safe for med in prescription.medications
+    )
+    val_review = (
         prescription.validation_result.requires_review
         if prescription.validation_result
-        else (status_enum == PrescriptionStatus.REQUIRES_REVIEW)
+        else False
     )
+    requires_review = (
+        val_review
+        or (status_enum == PrescriptionStatus.REQUIRES_REVIEW)
+        or any_med_requires_review
+    )
+    if any_med_requires_review and status_enum == PrescriptionStatus.COMPLETED:
+        status_enum = PrescriptionStatus.REQUIRES_REVIEW
+
     safety_reasons = (
         prescription.validation_result.reasons
         if prescription.validation_result and prescription.validation_result.reasons

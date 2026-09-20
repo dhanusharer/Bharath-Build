@@ -2,11 +2,12 @@ import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import HomePage, {
+import HomePage from "./page";
+import {
   getScheduleSectionTitle,
   getScheduleSectionDescription,
   resolveMedicationDisplay,
-} from "./page";
+} from "./medication-utils";
 import type { PrescriptionResponse, MedicationItem } from "./api-client";
 
 describe("Frontend Initial State & Safety UX Tests", () => {
@@ -89,13 +90,14 @@ describe("Frontend Initial State & Safety UX Tests", () => {
     assert.equal(completedTitle, "Verified Posology Schedule");
   });
 
-  it("Requirement 3: Resolves inconsistent rendering for 'Lisinopril 5mg' without 'Strength unstated'", () => {
-    // Scenario: drug_name has "Lisinopril 5mg", but structured strength object was unpopulated
-    const inconsistentMed: MedicationItem = {
+  it("Requirement 3: Never infers strength from drug_name with regex; displays 'Strength unverified' when structured strength is null", () => {
+    // Case: drug_name = "Lisinopril 5mg", strength.value = null, strength.raw_text = null
+    // Expected: display "Strength unverified", NOT "Strength: 5 mg" or "5mg"
+    const unvalidatedStrengthMed: MedicationItem = {
       medication_id: "med-001",
       drug_name: "Lisinopril 5mg",
-      is_verified_safe: true,
-      requires_review: false,
+      is_verified_safe: false,
+      requires_review: true,
       strength: {
         value: null,
         unit: null,
@@ -126,22 +128,62 @@ describe("Frontend Initial State & Safety UX Tests", () => {
       },
     };
 
-    const display = resolveMedicationDisplay(inconsistentMed);
+    const display = resolveMedicationDisplay(unvalidatedStrengthMed);
 
-    // Assert that strength is detected from name and never marked as "Strength unstated"
-    assert.equal(display.displayStrength, "5mg");
-    assert.equal(display.hasStrength, true);
-    assert.notEqual(
+    // Assert that frontend does NOT infer strength from drug_name string
+    assert.notEqual(display.displayStrength, "5 mg", "Must NOT infer '5 mg' from drug_name via regex");
+    assert.notEqual(display.displayStrength, "5mg", "Must NOT infer '5mg' from drug_name via regex");
+    assert.equal(
       display.displayStrength,
-      "Strength unstated",
-      "Should not display 'Strength unstated' when '5mg' is present in drug name"
+      "Strength unverified",
+      "Must display 'Strength unverified' when structured strength is missing"
     );
+    assert.equal(display.hasStrength, false);
+
+    // Verify rendered badge string
+    const renderedBadgeText = display.hasStrength
+      ? `Strength: ${display.displayStrength}`
+      : display.displayStrength;
+    assert.equal(renderedBadgeText, "Strength unverified");
+    assert.notEqual(renderedBadgeText, "Strength: 5 mg");
+    assert.notEqual(renderedBadgeText, "Strength: 5mg");
   });
 
-  it("Requirement 3b: Displays 'Strength unstated' only when truly absent from both name and strength field", () => {
-    const unstatedMed: MedicationItem = {
+  it("Requirement 3b: Displays validated strength when med.strength.value exists", () => {
+    const validatedMed: MedicationItem = {
       medication_id: "med-002",
-      drug_name: "Unknown Elixir",
+      drug_name: "Metformin",
+      is_verified_safe: true,
+      requires_review: false,
+      strength: {
+        value: 500,
+        unit: "mg",
+        raw_text: "500mg",
+      },
+      dose: { value: 1, unit: "tablet", raw_text: "1 tab" },
+      schedule: {
+        morning: true,
+        afternoon: false,
+        evening: false,
+        night: true,
+        is_as_needed_sos: false,
+        raw_text: "1-0-1",
+      },
+      meal_instruction: { before_meal: false, after_meal: true, raw_text: "after food" },
+      duration: { value: 1, unit: "month", raw_text: "1 month" },
+    };
+
+    const display = resolveMedicationDisplay(validatedMed);
+    assert.equal(display.displayStrength, "500 mg");
+    assert.equal(display.hasStrength, true);
+    assert.equal(display.displayDuration, "1 month");
+    assert.equal(display.hasDuration, true);
+  });
+
+  it("Requirement 5: drug_name = 'Lisinopril 5mg' with strength.value = null and strength.raw_text = null displays 'Strength unverified' and NOT 'Strength: 5 mg'", () => {
+    const med: MedicationItem = {
+      medication_id: "test-lisinopril-001",
+      drug_name: "Lisinopril 5mg",
       is_verified_safe: false,
       requires_review: true,
       strength: {
@@ -162,8 +204,85 @@ describe("Frontend Initial State & Safety UX Tests", () => {
       duration: { value: null, unit: null, raw_text: null },
     };
 
-    const display = resolveMedicationDisplay(unstatedMed);
-    assert.equal(display.displayStrength, "Strength unstated");
-    assert.equal(display.hasStrength, false);
+    const resolved = resolveMedicationDisplay(med);
+    assert.equal(resolved.displayName, "Lisinopril 5mg");
+    assert.equal(resolved.displayStrength, "Strength unverified");
+    assert.notEqual(resolved.displayStrength, "Strength: 5 mg");
+    assert.notEqual(resolved.displayStrength, "5 mg");
+    assert.notEqual(resolved.displayStrength, "5mg");
+    assert.equal(resolved.hasStrength, false);
+  });
+
+  it("Requirement 6: Duration display strictly reflects validated structured data and never infers from strings", () => {
+    // Validated 5 days
+    const med5Days: MedicationItem = {
+      medication_id: "med-aug",
+      drug_name: "Tab. Augmentin 625",
+      is_verified_safe: true,
+      requires_review: false,
+      strength: { value: 625, unit: "mg", raw_text: "625mg" },
+      dose: { value: 1, unit: "tablet", raw_text: "1 tab" },
+      schedule: { morning: true, afternoon: false, evening: true, night: false, is_as_needed_sos: false, raw_text: "1-0-1" },
+      meal_instruction: { before_meal: false, after_meal: true, raw_text: "after food" },
+      duration: { value: 5, unit: "days", raw_text: "x5days" },
+    };
+    const display5Days = resolveMedicationDisplay(med5Days);
+    assert.equal(display5Days.displayDuration, "5 days");
+    assert.equal(display5Days.hasDuration, true);
+
+    // Validated 1 week (7 days)
+    const med1Week: MedicationItem = {
+      ...med5Days,
+      drug_name: "Hexigel gum paint massage",
+      duration: { value: 7, unit: "days", raw_text: "x1week" },
+    };
+    const display1Week = resolveMedicationDisplay(med1Week);
+    assert.equal(display1Week.displayDuration, "7 days");
+    assert.equal(display1Week.hasDuration, true);
+
+    // Missing duration
+    const medNoDuration: MedicationItem = {
+      ...med5Days,
+      duration: { value: null, unit: null, raw_text: null },
+    };
+    const displayNoDur = resolveMedicationDisplay(medNoDuration);
+    assert.equal(displayNoDur.displayDuration, "Duration not confirmed");
+    assert.equal(displayNoDur.hasDuration, false);
+  });
+
+  it("Requirement 7 & 8: Top-level section title reflects medication-level safety state and never shows Verified Posology Schedule when any med requires review", () => {
+    const unverifiedPrescription: PrescriptionResponse = {
+      success: true,
+      request_id: "req-unverified",
+      prescription_id: "rx-unverified",
+      status: "COMPLETED", // Even if status was COMPLETED
+      requires_review: false,
+      safety_reasons: [],
+      medications: [
+        {
+          medication_id: "med-1",
+          drug_name: "Augmentin",
+          is_verified_safe: false, // Medication requires review
+          requires_review: true,
+          strength: { value: null, unit: null, raw_text: null },
+          dose: { value: null, unit: null, raw_text: null },
+          schedule: { morning: null, afternoon: null, evening: null, night: null, is_as_needed_sos: false, raw_text: null },
+          meal_instruction: { before_meal: null, after_meal: null, raw_text: null },
+          duration: { value: null, unit: null, raw_text: null },
+        },
+      ],
+      created_at: new Date().toISOString(),
+    };
+
+    const title = getScheduleSectionTitle(unverifiedPrescription);
+    assert.notEqual(
+      title,
+      "Verified Posology Schedule",
+      "Must NEVER show Verified Posology Schedule if any medication has requires_review=true or is_verified_safe=false"
+    );
+    assert.equal(title, "Unverified Medication Schedule (Requires Review)");
+
+    const desc = getScheduleSectionDescription(unverifiedPrescription);
+    assert.ok(desc.includes("Caution"));
   });
 });

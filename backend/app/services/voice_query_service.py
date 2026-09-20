@@ -19,7 +19,7 @@ from app.ports.localization import CanonicalMedicationFact, LocalizationPort
 from app.ports.stt import SpeechToTextPort
 from app.ports.tts import TTSProvider
 from app.repositories.prescription_repository import PrescriptionRepository
-from app.schemas.voice import VoiceQueryResponse
+from app.schemas.voice import VoiceQueryResponse, VoiceQueryResultState
 from app.services.voice_intent import VoiceIntentService, VoiceIntentType
 
 logger = logging.getLogger("medication_accessibility.voice_service")
@@ -71,20 +71,26 @@ class VoiceQueryService:
         )
         transcript_text = stt_result.text
 
-        # 4. Deterministic safety check on prescription status
-        # If prescription requires review or failed, refuse to disclose posology facts
-        if prescription.status != PrescriptionStatus.COMPLETED:
+        # 4. Classify intent to understand query semantics
+        intent_res = self.intent_service.classify_intent(
+            query_text=transcript_text,
+            known_drug_names=known_drug_names,
+        )
+
+        # 5. Fail closed if prescription was explicitly marked as failed
+        if prescription.status == PrescriptionStatus.FAILED:
             logger.warning(
-                "Prescription %s has status %s - refusing voice query disclosure.",
+                "Prescription %s is FAILED - refusing voice query disclosure.",
                 prescription_id,
-                prescription.status,
                 extra={"request_id": request_id},
             )
-            review_msg = self.localization.get_review_required_message(language)
-
+            safety_refusal_msg = self.localization.get_intent_safety_refusal_message(
+                intent=intent_res.intent,
+                language=language,
+            )
             audio_b64 = None
             try:
-                tts_res = await self.tts.synthesize(text=review_msg, language=language)
+                tts_res = await self.tts.synthesize(text=safety_refusal_msg, language=language)
                 audio_b64 = base64.b64encode(tts_res.audio_bytes).decode("ascii")
             except Exception as e:
                 logger.error("TTS synthesis failed for review message: %s", str(e))
@@ -94,29 +100,52 @@ class VoiceQueryService:
                 request_id=request_id,
                 prescription_id=prescription_id,
                 transcript=transcript_text,
-                intent=VoiceIntentType.UNKNOWN,
-                target_drug=None,
-                response_text=review_msg,
+                intent=intent_res.intent.value,
+                target_drug=intent_res.target_drug,
+                response_text=safety_refusal_msg,
                 audio_base64=audio_b64,
                 language=language,
                 requires_review=True,
-                safety_reasons=[f"Prescription status is {prescription.status} (requires review)"],
+                result_state=VoiceQueryResultState.PRESCRIPTION_REQUIRES_REVIEW,
+                safety_reasons=["Prescription REJECTED_UNSAFE; posology withheld"],
             )
 
-        # 5. Classify intent
-        intent_res = self.intent_service.classify_intent(
-            query_text=transcript_text,
-            known_drug_names=known_drug_names,
-        )
+        # 6. Handle unsupported/unknown intent
+        if intent_res.intent == VoiceIntentType.UNKNOWN:
+            unsupported_msg = self.localization.get_unsupported_intent_message(language)
+            audio_b64 = None
+            try:
+                tts_res = await self.tts.synthesize(text=unsupported_msg, language=language)
+                audio_b64 = base64.b64encode(tts_res.audio_bytes).decode("ascii")
+            except Exception as e:
+                logger.error("TTS synthesis failed for unsupported intent: %s", str(e))
 
-        # 6. Map medications to CanonicalMedicationFact
-        facts: list[CanonicalMedicationFact] = []
+            return VoiceQueryResponse(
+                success=False,
+                request_id=request_id,
+                prescription_id=prescription_id,
+                transcript=transcript_text,
+                intent=intent_res.intent.value,
+                target_drug=intent_res.target_drug,
+                response_text=unsupported_msg,
+                audio_base64=audio_b64,
+                language=language,
+                requires_review=prescription.status == PrescriptionStatus.REQUIRES_REVIEW,
+                result_state=VoiceQueryResultState.NO_CONFIRMED_MATCH,
+                safety_reasons=["Unsupported voice query intent"],
+            )
+
+        # 7. Map all medications to CanonicalMedicationFact
+        all_facts: list[CanonicalMedicationFact] = []
         for m in prescription.medications:
-            if not m.drug_name or not m.is_verified_safe:
+            name = m.drug_name or m.raw_drug_name
+            if not name:
                 continue
-            facts.append(
+            is_safe = bool(m.is_verified_safe and not m.requires_review)
+            needs_review = bool(m.requires_review or not m.is_verified_safe)
+            all_facts.append(
                 CanonicalMedicationFact(
-                    drug_name=m.drug_name,
+                    drug_name=name,
                     strength_value=m.strength_value,
                     strength_unit=m.strength_unit,
                     dose_value=m.dose_value,
@@ -130,19 +159,130 @@ class VoiceQueryService:
                     after_meal=m.after_meal,
                     duration_value=m.duration_value,
                     duration_unit=m.duration_unit,
-                    is_verified_safe=m.is_verified_safe,
+                    is_verified_safe=is_safe,
+                    requires_review=needs_review,
                 )
             )
 
-        # 7. Generate localized response text
-        response_text = self.localization.format_intent_response(
-            intent=intent_res.intent,
-            facts=facts,
-            language=language,
-            target_drug=intent_res.target_drug,
+        # 8. Filter facts matching the specific clinical intent
+        def _matches_intent(f: CanonicalMedicationFact) -> bool:
+            if intent_res.intent == VoiceIntentType.NIGHT_MEDICINE:
+                return f.night is True
+            if intent_res.intent == VoiceIntentType.MORNING_MEDICINE:
+                return f.morning is True
+            if intent_res.intent == VoiceIntentType.BEFORE_FOOD:
+                return f.before_meal is True
+            if intent_res.intent == VoiceIntentType.AFTER_FOOD:
+                return f.after_meal is True
+            if intent_res.intent in (
+                VoiceIntentType.DURATION,
+                VoiceIntentType.LIST_MEDICATIONS,
+                VoiceIntentType.SCHEDULE,
+            ):
+                return True
+            if intent_res.intent == VoiceIntentType.SPECIFIC_DRUG:
+                if intent_res.target_drug:
+                    return f.drug_name.lower() == intent_res.target_drug.lower()
+                return True
+            return False
+
+        matching_facts = [f for f in all_facts if _matches_intent(f)]
+        verified_matches = [
+            f for f in matching_facts if f.is_verified_safe and not f.requires_review
+        ]
+        unverified_matches = [
+            f for f in matching_facts if f.requires_review or not f.is_verified_safe
+        ]
+
+        # 9. Granular Safety Disclosure Classification (Option 3)
+        has_only_unknown_names = bool(
+            unverified_matches
+            and all(
+                f.drug_name.strip().lower() in ("unknowndrug", "unknown", "unknown medication")
+                for f in unverified_matches
+            )
         )
 
-        # 8. Synthesize speech (gracefully fall back if TTS fails)
+        if not verified_matches and (
+            intent_res.intent == VoiceIntentType.LIST_MEDICATIONS or has_only_unknown_names
+        ):
+            result_state = VoiceQueryResultState.PRESCRIPTION_REQUIRES_REVIEW
+            success = False
+            requires_review = True
+            safety_reasons = ["Prescription contains unverified posology; safety refusal enforced"]
+            response_text = self.localization.get_intent_safety_refusal_message(
+                intent=intent_res.intent,
+                language=language,
+            )
+        elif verified_matches and not unverified_matches:
+            result_state = VoiceQueryResultState.CONFIRMED_MATCH
+            success = True
+            requires_review = False
+            safety_reasons = []
+            response_text = self.localization.format_granular_intent_response(
+                intent=intent_res.intent,
+                verified_facts=verified_matches,
+                unverified_facts=[],
+                language=language,
+                target_drug=intent_res.target_drug,
+            )
+        elif verified_matches and unverified_matches:
+            result_state = VoiceQueryResultState.PARTIAL_CONFIRMED_MATCH
+            success = True
+            requires_review = True
+            safety_reasons = [
+                f"{f.drug_name}: posology unverified; pharmacist review required"
+                for f in unverified_matches
+            ]
+            response_text = self.localization.format_granular_intent_response(
+                intent=intent_res.intent,
+                verified_facts=verified_matches,
+                unverified_facts=unverified_matches,
+                language=language,
+                target_drug=intent_res.target_drug,
+            )
+        elif not verified_matches and unverified_matches:
+            result_state = VoiceQueryResultState.PRESCRIPTION_REQUIRES_REVIEW
+            success = False
+            requires_review = True
+            safety_reasons = [
+                f"{f.drug_name}: posology unverified; pharmacist review required"
+                for f in unverified_matches
+            ]
+            response_text = self.localization.format_granular_intent_response(
+                intent=intent_res.intent,
+                verified_facts=[],
+                unverified_facts=unverified_matches,
+                language=language,
+                target_drug=intent_res.target_drug,
+            )
+        else:
+            # Neither verified nor unverified matches for this specific intent
+            if prescription.status == PrescriptionStatus.REQUIRES_REVIEW:
+                result_state = VoiceQueryResultState.PRESCRIPTION_REQUIRES_REVIEW
+                success = False
+                requires_review = True
+                safety_reasons = [
+                    "Prescription contains unverified posology; safety refusal enforced"
+                ]
+                response_text = self.localization.get_intent_safety_refusal_message(
+                    intent=intent_res.intent,
+                    language=language,
+                )
+            else:
+                result_state = VoiceQueryResultState.NO_CONFIRMED_MATCH
+                success = True
+                requires_review = False
+                safety_reasons = []
+                response_text = self.localization.format_granular_intent_response(
+                    intent=intent_res.intent,
+                    verified_facts=[],
+                    unverified_facts=[],
+                    language=language,
+                    target_drug=intent_res.target_drug,
+                )
+
+        # 11. Synthesize speech (gracefully fall back if TTS fails)
         audio_b64 = None
         try:
             tts_res = await self.tts.synthesize(text=response_text, language=language)
@@ -151,15 +291,16 @@ class VoiceQueryService:
             logger.error("TTS synthesis failed for query response: %s", str(e))
 
         return VoiceQueryResponse(
-            success=True,
+            success=success,
             request_id=request_id,
             prescription_id=prescription_id,
             transcript=transcript_text,
-            intent=intent_res.intent,
+            intent=intent_res.intent.value,
             target_drug=intent_res.target_drug,
             response_text=response_text,
             audio_base64=audio_b64,
             language=language,
-            requires_review=False,
-            safety_reasons=[],
+            requires_review=requires_review,
+            result_state=result_state,
+            safety_reasons=safety_reasons,
         )

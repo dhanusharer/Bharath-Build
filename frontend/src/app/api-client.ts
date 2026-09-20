@@ -60,11 +60,12 @@ export interface VoiceQueryResponse {
   audio_content_type: string;
   language: string;
   requires_review: boolean;
+  result_state?: "CONFIRMED_MATCH" | "PARTIAL_CONFIRMED_MATCH" | "NO_CONFIRMED_MATCH" | "PRESCRIPTION_REQUIRES_REVIEW";
   safety_reasons: string[];
   created_at: string;
 }
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+const API_BASE = (process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000").replace(/\/+$/, "");
 
 export async function uploadPrescription(file: File): Promise<PrescriptionResponse> {
   const formData = new FormData();

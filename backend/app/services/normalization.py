@@ -90,7 +90,12 @@ _DOSE_REGEX = re.compile(
 )
 
 _DURATION_REGEX = re.compile(
-    r"^(?P<value>\d+)\s*(?P<unit>days?|d|weeks?|w|months?|m)$",
+    r"^(?:(?:x|for|\*)\s*)?(?P<value>\d+)\s*(?P<unit>days?|d|weeks?|w|months?|m)\.?$",
+    re.IGNORECASE,
+)
+
+_DURATION_FRACTION_REGEX = re.compile(
+    r"^(?:(?:x|for|\*)\s*)?(?P<value>\d+)\s*/\s*(?P<scale>7|52|12)\.?$",
     re.IGNORECASE,
 )
 
@@ -240,6 +245,19 @@ def normalize_duration(
 
         return None, None, [f"Unrecognized duration unit: '{unit_str}'."], True
 
+    frac_match = _DURATION_FRACTION_REGEX.match(clean_dur)
+    if frac_match:
+        value = int(frac_match.group("value"))
+        scale = frac_match.group("scale")
+        if scale == "7":
+            unit = "day" if value == 1 else "days"
+            return value, unit, [], False
+        if scale == "52":
+            return value * 7, "days", [], False
+        if scale == "12":
+            unit = "month" if value == 1 else "months"
+            return value, unit, [], False
+
     note = f"Unparseable duration text: '{raw_duration}'."
     return None, None, [note], True
 
@@ -340,6 +358,48 @@ def process_prescription(
                 safety=final_safety,
                 is_verified_safe=is_verified_safe,
             )
+        )
+
+    # 4. Reconcile overall prescription safety with medication safety and normalization
+    has_unsafe_med = any(
+        vm.safety.status == SafetyDecisionStatus.REJECTED_UNSAFE
+        or (not vm.safety.is_safe and not vm.safety.requires_review)
+        for vm in validated_meds
+    )
+    has_review_med = any(
+        vm.safety.requires_review
+        or not vm.is_verified_safe
+        or vm.normalized.requires_review
+        for vm in validated_meds
+    )
+
+    if has_unsafe_med:
+        reasons = list(overall_safety.reasons)
+        for vm in validated_meds:
+            if vm.safety.status == SafetyDecisionStatus.REJECTED_UNSAFE:
+                for r in vm.safety.reasons:
+                    if r not in reasons:
+                        reasons.append(r)
+        overall_safety = SafetyCheckResult(
+            is_safe=False,
+            status=SafetyDecisionStatus.REJECTED_UNSAFE,
+            requires_review=False,
+            reasons=reasons,
+            confidence_signals=overall_safety.confidence_signals,
+        )
+    elif has_review_med and overall_safety.is_safe:
+        reasons = list(overall_safety.reasons)
+        for vm in validated_meds:
+            if vm.safety.requires_review or not vm.is_verified_safe:
+                for r in vm.safety.reasons:
+                    if r not in reasons:
+                        reasons.append(r)
+        overall_safety = SafetyCheckResult(
+            is_safe=False,
+            status=SafetyDecisionStatus.REQUIRES_REVIEW,
+            requires_review=True,
+            reasons=reasons,
+            confidence_signals=overall_safety.confidence_signals,
         )
 
     return ValidatedPrescription(

@@ -29,6 +29,7 @@ class CanonicalMedicationFact:
     duration_value: int | None
     duration_unit: str | None
     is_verified_safe: bool = True
+    requires_review: bool = False
 
 
 class LocalizationPort(ABC):
@@ -42,22 +43,33 @@ class LocalizationPort(ABC):
         language: str = "en-IN",
         target_drug: str | None = None,
     ) -> str:
-        """Format a spoken response for a given clinical intent and medication facts.
+        """Format a spoken response for a given clinical intent and medication facts."""
+        raise NotImplementedError
 
-        Args:
-            intent: The parsed VoiceIntentType.
-            facts: List of validated medication facts from DB.
-            language: Target language (en-IN, hi-IN, kn-IN).
-            target_drug: Specific drug name if filtered.
-
-        Returns:
-            Deterministic localized text response.
-        """
+    @abstractmethod
+    def format_granular_intent_response(
+        self,
+        intent: VoiceIntentType,
+        verified_facts: list[CanonicalMedicationFact],
+        unverified_facts: list[CanonicalMedicationFact],
+        language: str = "en-IN",
+        target_drug: str | None = None,
+    ) -> str:
+        """Format a response distinguishing verified posology from unverified medications."""
         raise NotImplementedError
 
     @abstractmethod
     def get_review_required_message(self, language: str = "en-IN") -> str:
         """Return safe message when prescription requires pharmacist review."""
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_intent_safety_refusal_message(
+        self,
+        intent: VoiceIntentType,
+        language: str = "en-IN",
+    ) -> str:
+        """Return safe refusal message when prescription requires review for a specific intent."""
         raise NotImplementedError
 
     @abstractmethod

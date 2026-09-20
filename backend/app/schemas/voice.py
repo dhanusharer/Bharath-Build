@@ -1,8 +1,18 @@
 """Schemas for Voice Accessibility Endpoints."""
 
 from datetime import UTC, datetime
+from enum import StrEnum
 
 from pydantic import BaseModel, Field
+
+
+class VoiceQueryResultState(StrEnum):
+    """Semantic outcome classification for a voice query."""
+
+    CONFIRMED_MATCH = "CONFIRMED_MATCH"
+    PARTIAL_CONFIRMED_MATCH = "PARTIAL_CONFIRMED_MATCH"
+    NO_CONFIRMED_MATCH = "NO_CONFIRMED_MATCH"
+    PRESCRIPTION_REQUIRES_REVIEW = "PRESCRIPTION_REQUIRES_REVIEW"
 
 
 class TranscribeResponse(BaseModel):
@@ -32,6 +42,10 @@ class VoiceQueryResponse(BaseModel):
     audio_content_type: str | None = Field(default="audio/mpeg", description="Audio MIME format")
     language: str = Field(description="Response language code")
     requires_review: bool = Field(description="Whether prescription requires human review")
+    result_state: VoiceQueryResultState = Field(
+        default=VoiceQueryResultState.CONFIRMED_MATCH,
+        description="Semantic state of the query result",
+    )
     safety_reasons: list[str] = Field(
         default_factory=list,
         description="Safety or refusal triggers",

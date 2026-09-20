@@ -9,15 +9,35 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          50: "#f0fdf4",
-          100: "#dcfce7",
-          500: "#22c55e",
-          600: "#16a34a",
-          700: "#15803d",
-          800: "#166534",
-          900: "#14532d",
+        coral: {
+          DEFAULT: "#fc5f2b",
+          sunrise: "#fc5f2b",
+          glow: "#ff8b64",
         },
+        carbon: {
+          DEFAULT: "#18181b",
+          black: "#18181b",
+        },
+        zinc: {
+          gray: "#71717a",
+          ash: "#a1a1aa",
+          mist: "#e4e4e7",
+          fog: "#f4f4f5",
+        },
+        paper: "#ffffff",
+      },
+      borderRadius: {
+        cards: "15px",
+        icons: "7.5px",
+        pills: "9999px",
+        smallcards: "5px",
+      },
+      boxShadow: {
+        subtle: "rgba(0, 0, 0, 0.05) 0px 2px 2px 0px",
+      },
+      fontFamily: {
+        sans: ["var(--font-nb-international-pro)", "sans-serif"],
+        mono: ["var(--font-nb-international-mono-pro)", "monospace"],
       },
     },
   },

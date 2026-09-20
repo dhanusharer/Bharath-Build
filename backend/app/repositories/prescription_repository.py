@@ -105,9 +105,16 @@ class PrescriptionRepository:
         if not prescription:
             raise ValueError(f"Prescription {prescription_id} not found")
 
-        # 1. Update overall status based on Phase 1 safety gate
+        # 1. Update overall status based on Phase 1 safety gate & medication safety
         overall_safety = validated_prescription.overall_safety
-        if overall_safety.is_safe and not overall_safety.requires_review:
+        all_meds_verified = (
+            len(validated_prescription.medications) > 0
+            and all(
+                m.is_verified_safe and not m.safety.requires_review
+                for m in validated_prescription.medications
+            )
+        )
+        if overall_safety.is_safe and not overall_safety.requires_review and all_meds_verified:
             prescription.status = PrescriptionStatus.COMPLETED.value
         else:
             prescription.status = PrescriptionStatus.REQUIRES_REVIEW.value
@@ -129,6 +136,12 @@ class PrescriptionRepository:
         for med in validated_prescription.medications:
             norm = med.normalized
             raw = norm.raw_reference
+            med_requires_review = (
+                norm.requires_review
+                or med.safety.requires_review
+                or not med.is_verified_safe
+                or raw.requires_review
+            )
             med_record = MedicationResult(
                 id=str(uuid.uuid4()),
                 prescription_id=prescription_id,
@@ -141,7 +154,7 @@ class PrescriptionRepository:
                 raw_meal_instruction=raw.raw_meal_instruction,
                 raw_duration=raw.raw_duration,
                 is_legible=raw.is_legible,
-                requires_review=raw.requires_review,
+                requires_review=med_requires_review,
                 # Normalized fields
                 drug_name=norm.drug_name,
                 strength_value=norm.strength_value,

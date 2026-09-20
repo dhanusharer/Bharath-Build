@@ -23,7 +23,11 @@ class Settings(BaseSettings):
 
     # Security & CORS
     SECRET_KEY: str = "development-secret-key-replace-in-production-min-32-chars"
-    ALLOWED_ORIGINS: list[str] = Field(default=["http://localhost:3000", "http://127.0.0.1:3000"])
+    CORS_ORIGINS: list[str] = Field(
+        default=["http://localhost:3000", "http://127.0.0.1:3000"],
+        description="Allowed origins for CORS (comma-separated string or list)",
+    )
+    ALLOWED_ORIGINS: list[str] | None = None
 
     # Database
     DATABASE_URL: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/medication_access_db"
@@ -52,14 +56,25 @@ class Settings(BaseSettings):
     BEDROCK_TEMPERATURE: float = 0.0
     BEDROCK_MAX_TOKENS: int = 2048
 
-    @field_validator("ALLOWED_ORIGINS", mode="before")
+    @field_validator("CORS_ORIGINS", "ALLOWED_ORIGINS", mode="before")
     @classmethod
-    def assemble_cors_origins(cls, v: str | list[str]) -> list[str]:
+    def assemble_cors_origins(cls, v: str | list[str] | None) -> list[str] | None:
+        if v is None:
+            return None
         if isinstance(v, str) and not v.startswith("["):
             return [i.strip() for i in v.split(",") if i.strip()]
         if isinstance(v, (list, str)):
             return v  # type: ignore[return-value]
-        raise ValueError("Invalid format for ALLOWED_ORIGINS")
+        raise ValueError("Invalid format for CORS origins")
+
+    @property
+    def cors_origins_list(self) -> list[str]:
+        """Resolve active CORS origins, checking CORS_ORIGINS then ALLOWED_ORIGINS."""
+        if self.CORS_ORIGINS:
+            return self.CORS_ORIGINS
+        if self.ALLOWED_ORIGINS:
+            return self.ALLOWED_ORIGINS
+        return ["http://localhost:3000", "http://127.0.0.1:3000"]
 
 
 @lru_cache

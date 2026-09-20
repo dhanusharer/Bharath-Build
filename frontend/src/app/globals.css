@@ -1,14 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  /* Colors */
+  --color-sunrise-coral: #fc5f2b;
+  --color-coral-glow: #ff8b64;
+  --gradient-coral-glow: linear-gradient(88deg, rgb(252, 95, 43), rgb(255, 139, 100) 90%, rgb(255, 255, 255));
+  --color-carbon-black: #18181b;
+  --color-pure-black: #000000;
+  --color-zinc-gray: #71717a;
+  --color-ash-gray: #a1a1aa;
+  --color-mist-gray: #e4e4e7;
+  --color-fog-gray: #f4f4f5;
+  --color-paper-white: #ffffff;
+
+  /* Typography */
+  --font-nb-international-pro: 'Inter Tight', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-nb-international-mono-pro: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Typography Scale */
+  --text-caption: 11px;
+  --leading-caption: 1.5;
+  --tracking-caption: -0.005em;
+  --text-body: 15px;
+  --leading-body: 1.5;
+  --tracking-body: -0.005em;
+  --text-body-lg: 17px;
+  --leading-body-lg: 1.4;
+  --tracking-body-lg: -0.009em;
+  --text-subheading: 19px;
+  --leading-subheading: 1.4;
+  --tracking-subheading: -0.009em;
+  --text-heading-sm: 22px;
+  --leading-heading-sm: 1.25;
+  --tracking-heading-sm: -0.012em;
+  --text-heading: 30px;
+  --leading-heading: 1.2;
+  --tracking-heading: -0.013em;
+  --text-heading-lg: 45px;
+  --leading-heading-lg: 1.13;
+  --tracking-heading-lg: -0.015em;
+  --text-display: 66px;
+  --leading-display: 1.0;
+  --tracking-display: -0.025em;
+
+  /* Spacing */
+  --page-max-width: 1200px;
+  --section-gap: 75px;
+  --card-padding: 19px;
+  --element-gap: 11px;
+
+  /* Border Radius */
+  --radius-cards: 15px;
+  --radius-icons: 7.5px;
+  --radius-pills: 9999px;
+  --radius-navbar: 15px;
+  --radius-buttons: 9999px;
+  --radius-smallcards: 5px;
+
+  /* Shadows */
+  --shadow-subtle: rgba(0, 0, 0, 0.05) 0px 2px 2px 0px;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: var(--color-carbon-black);
+  background-color: var(--color-paper-white);
+  font-family: var(--font-nb-international-pro);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Superpower Monolithic Display Headings (Weight 400 whisper-weight) */
+.superpower-display {
+  font-size: 66px;
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .superpower-display {
+    font-size: 40px;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+}
+
+.superpower-heading-lg {
+  font-size: 45px;
+  line-height: 1.13;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .superpower-heading-lg {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+}
+
+.superpower-heading {
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.013em;
+  font-weight: 400;
+}
+
+.superpower-heading-sm {
+  font-size: 22px;
+  line-height: 1.25;
+  letter-spacing: -0.012em;
+}
+
+.superpower-subheading {
+  font-size: 19px;
+  line-height: 1.4;
+  letter-spacing: -0.009em;
+}
+
+.superpower-body-lg {
+  font-size: 17px;
+  line-height: 1.4;
+  letter-spacing: -0.009em;
+}
+
+.superpower-body {
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+}
+
+.superpower-caption {
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+}
+
+.font-mono-clinical {
+  font-family: var(--font-nb-international-mono-pro);
+}
+
+/* Audio wave animation bars */
+@keyframes soundwave {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 24px;
+  }
+}
+
+.animate-wave-1 { animation: soundwave 0.8s ease-in-out infinite 0.1s; }
+.animate-wave-2 { animation: soundwave 0.8s ease-in-out infinite 0.25s; }
+.animate-wave-3 { animation: soundwave 0.8s ease-in-out infinite 0.4s; }
+.animate-wave-4 { animation: soundwave 0.8s ease-in-out infinite 0.15s; }
+.animate-wave-5 { animation: soundwave 0.8s ease-in-out infinite 0.35s; }
+.animate-wave-6 { animation: soundwave 0.8s ease-in-out infinite 0.5s; }
+
+/* Subtle Bioluminescent Ambient Glows */
+.bioluminescent-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(252, 95, 43, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.bioluminescent-teal-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(13, 148, 136, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f4f4f5;
+}
+::-webkit-scrollbar-thumb {
+  background: #a1a1aa;
+  border-radius: 9999px;
 }

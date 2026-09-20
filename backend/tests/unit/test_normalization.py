@@ -16,6 +16,7 @@ import pytest
 from app.schemas.prescription import (
     RawMedicationExtraction,
     RawPrescriptionExtraction,
+    SafetyDecisionStatus,
 )
 from app.services.normalization import (
     normalize_dose,
@@ -231,6 +232,20 @@ def test_missing_duration_must_remain_null() -> None:
         ("2 months", 2, "months"),
         ("1 m", 1, "month"),
         ("3 m", 3, "months"),
+        # Medical shorthand & prefixes
+        ("x5days", 5, "days"),
+        ("x 5 days", 5, "days"),
+        ("X5days", 5, "days"),
+        ("for 5 days", 5, "days"),
+        ("5 days.", 5, "days"),
+        ("x1week", 7, "days"),
+        ("x 1 week", 7, "days"),
+        ("for 1 week", 7, "days"),
+        ("1 week.", 7, "days"),
+        ("5/7", 5, "days"),
+        ("x5/7", 5, "days"),
+        ("1/52", 7, "days"),
+        ("1/12", 1, "month"),
     ],
 )
 def test_supported_duration_parsing(
@@ -243,6 +258,41 @@ def test_supported_duration_parsing(
     assert val == expected_val
     assert unit == expected_unit
     assert rev is False
+
+
+@pytest.mark.parametrize(
+    "missing_raw",
+    [None, "", "   ", "\t\n"],
+)
+def test_missing_duration_regression(missing_raw: str | None) -> None:
+    """Regression test: Missing duration must remain null and not flag review."""
+    val, unit, notes, rev = normalize_duration(missing_raw)
+    assert val is None
+    assert unit is None
+    assert notes == []
+    assert rev is False
+
+
+@pytest.mark.parametrize(
+    "ambiguous_raw",
+    [
+        "5",  # number without unit
+        "few days",
+        "1-2 weeks",
+        "SOS",
+        "as needed",
+        "until better",
+        "x",
+    ],
+)
+def test_ambiguous_duration_regression(ambiguous_raw: str) -> None:
+    """Regression test: Ambiguous or unparseable duration must fail closed and require review."""
+    val, unit, notes, rev = normalize_duration(ambiguous_raw)
+    assert val is None
+    assert unit is None
+    assert rev is True
+    assert len(notes) > 0
+    assert "Unparseable duration text" in notes[0] or "Unrecognized duration unit" in notes[0]
 
 
 def test_month_duration_preserved_and_raw_duration_unchanged() -> None:
@@ -341,3 +391,32 @@ def test_full_pipeline_prescription_processing() -> None:
     # Second med: unsupported timing -> requires_review, not verified safe
     assert validated.medications[1].is_verified_safe is False
     assert validated.medications[1].safety.requires_review is True
+
+    # Invariant: Overall safety MUST be downgraded when any medication requires review
+    assert validated.overall_safety.status == SafetyDecisionStatus.REQUIRES_REVIEW
+    assert validated.overall_safety.is_safe is False
+    assert validated.overall_safety.requires_review is True
+
+
+def test_process_prescription_all_safe_remains_safe() -> None:
+    """Verify that when all medications are verified safe, overall safety remains SAFE_TO_PROCESS."""
+    item1 = RawMedicationExtraction(
+        raw_drug_name="Metformin",
+        drug_confidence=0.95,
+        raw_strength="500mg",
+        raw_dose="1 tablet",
+        raw_timing_text="1-0-1",
+        raw_meal_instruction="after meals",
+        raw_duration="x5days",
+    )
+    raw_doc = RawPrescriptionExtraction(
+        prescription_id="rx-test-safe",
+        overall_legibility=True,
+        medications=[item1],
+    )
+    validated = process_prescription(raw_doc)
+    assert validated.medications[0].is_verified_safe is True
+    assert validated.medications[0].normalized.duration_value == 5
+    assert validated.overall_safety.status == SafetyDecisionStatus.SAFE_TO_PROCESS
+    assert validated.overall_safety.is_safe is True
+    assert validated.overall_safety.requires_review is False
