@@ -30,10 +30,11 @@ class Settings(BaseSettings):
     DB_POOL_SIZE: int = 10
     DB_MAX_OVERFLOW: int = 20
 
-    # AWS Configuration (Placeholder credentials for Phase 0 scaffolding)
+    # AWS Configuration (Supports AWS_PROFILE or standard credential chain)
     AWS_REGION: str = "ap-south-1"
-    AWS_ACCESS_KEY_ID: str = "placeholder-aws-access-key"
-    AWS_SECRET_ACCESS_KEY: str = "placeholder-aws-secret-key"
+    AWS_PROFILE: str | None = None
+    AWS_ACCESS_KEY_ID: str | None = None
+    AWS_SECRET_ACCESS_KEY: str | None = None
 
     # Storage & AI Services
     S3_BUCKET_NAME: str = "medication-access-artifacts-dev"

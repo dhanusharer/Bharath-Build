@@ -101,7 +101,8 @@ class S3ObjectStorage(ObjectStoragePort):
         except ClientError as e:
             error_code = e.response.get("Error", {}).get("Code", "")
             if error_code in ("AccessDenied", "UnauthorizedOperation"):
-                raise StorageAuthError(f"Access denied writing to bucket '{self.bucket_name}'.") from e
+                msg = f"Access denied writing to bucket '{self.bucket_name}'."
+                raise StorageAuthError(msg) from e
             raise StorageUploadError(key=key, details=f"S3 ClientError [{error_code}]") from e
 
         except Exception as e:
@@ -122,7 +123,8 @@ class S3ObjectStorage(ObjectStoragePort):
             if error_code in ("NoSuchKey", "404"):
                 raise StorageNotFoundError(key=key) from e
             if error_code in ("AccessDenied", "UnauthorizedOperation"):
-                raise StorageAuthError(f"Access denied reading from bucket '{self.bucket_name}'.") from e
+                msg = f"Access denied reading from bucket '{self.bucket_name}'."
+                raise StorageAuthError(msg) from e
             raise StorageError(f"S3 get_object failed: [{error_code}]", key=key) from e
 
         except Exception as e:

@@ -1,7 +1,8 @@
 """Prescription Ingestion Application Service.
 
 Orchestrates the end-to-end ingestion pipeline:
-Validation -> S3 Storage -> VisionExtractionPort -> Phase 1 Safety Gate -> Phase 1 Normalization -> Persistence -> Response Mapping.
+Validation -> S3 Storage -> VisionExtractionPort -> Phase 1 Safety Gate
+-> Phase 1 Normalization -> Persistence -> Response Mapping.
 """
 
 import logging
@@ -106,7 +107,7 @@ def map_prescription_to_response(
 
 
 class PrescriptionIngestionService:
-    """Application service orchestrating upload, storage, extraction, safety gating, and persistence."""
+    """Orchestrates upload, storage, extraction, safety gating, and persistence."""
 
     def __init__(
         self,
@@ -139,8 +140,9 @@ class PrescriptionIngestionService:
                 len(image_bytes),
                 extra={"request_id": request_id},
             )
+            max_mb = MAX_FILE_SIZE_BYTES // (1024 * 1024)
             raise IngestionValidationError(
-                f"File size exceeds maximum allowed limit of {MAX_FILE_SIZE_BYTES // (1024 * 1024)}MB.",
+                f"File size exceeds maximum allowed limit of {max_mb}MB.",
                 code="FILE_SIZE_EXCEEDED",
             )
 
@@ -154,7 +156,7 @@ class PrescriptionIngestionService:
             )
             raise IngestionValidationError(
                 f"Unsupported media type '{mime_type}'. Supported formats: JPEG, PNG, WebP.",
-                code="INVALID_IMAGE_PAYLOAD",
+                code="UNSUPPORTED_MEDIA_TYPE",
             )
 
         # 4. Check idempotency
@@ -171,7 +173,7 @@ class PrescriptionIngestionService:
 
         # 5. Initialize Prescription in DB (State: UPLOADED)
         prescription_id = str(uuid.uuid4())
-        prescription = await self.repo.create_prescription(
+        await self.repo.create_prescription(
             prescription_id=prescription_id,
             idempotency_key=idempotency_key,
             status=PrescriptionStatus.UPLOADED,

@@ -12,7 +12,6 @@ Adheres strictly to Phase 3 Response Contract (Section 6) and PRD specifications
 """
 
 from datetime import UTC, datetime
-from typing import Annotated
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -93,13 +92,16 @@ class PrescriptionIngestionResponse(BaseModel):
 
     model_config = ConfigDict(frozen=True)
 
-    success: bool = Field(..., description="True if ingestion and safety workflow completed without system error")
+    success: bool = Field(..., description="True if ingestion completed without error")
     request_id: str = Field(..., description="Unique request tracing correlation ID")
     prescription_id: str = Field(..., description="Unique identifier for the prescription")
     status: PrescriptionStatus = Field(..., description="Current processing state")
-    requires_review: bool = Field(..., description="True if clinical or human pharmacist review is needed")
-    safety_reasons: list[str] = Field(default_factory=list, description="Safety or review reasons flagged")
-    medications: list[PrescriptionMedicationItem] = Field(default_factory=list, description="Extracted medications")
+    requires_review: bool = Field(..., description="True if review is needed")
+    safety_reasons: list[str] = Field(default_factory=list, description="Safety reasons flagged")
+    medications: list[PrescriptionMedicationItem] = Field(
+        default_factory=list,
+        description="Extracted medications",
+    )
     created_at: datetime = Field(
         default_factory=lambda: datetime.now(UTC),
         description="Prescription registration timestamp",

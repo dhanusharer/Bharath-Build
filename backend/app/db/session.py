@@ -2,6 +2,7 @@
 
 import logging
 from collections.abc import AsyncGenerator
+from typing import Any
 
 from sqlalchemy.ext.asyncio import (
     AsyncEngine,
@@ -16,11 +17,11 @@ from app.db.models import Base
 logger = logging.getLogger("medication_accessibility.db")
 settings = get_settings()
 
-# Engine creation: In unit tests or dev, DATABASE_URL may be sqlite+aiosqlite or postgresql+asyncpg
-# asyncpg does not take pool_size/max_overflow if using SQLite, so pass pool args only for postgresql
+# Engine creation: In unit tests or dev, DATABASE_URL may be sqlite+aiosqlite
+# asyncpg takes pool_size/max_overflow, SQLite does not
 is_postgres = settings.DATABASE_URL.startswith("postgresql")
 
-engine_kwargs = {
+engine_kwargs: dict[str, Any] = {
     "echo": False,
     "future": True,
 }
@@ -44,7 +45,7 @@ async_session_factory = async_sessionmaker(
 
 async def init_db(target_engine: AsyncEngine = engine) -> None:
     """Create all database tables asynchronously if they do not exist.
-    
+
     Safe for local development and integration test initialization.
     Production uses schema migrations (Alembic).
     """

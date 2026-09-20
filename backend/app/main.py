@@ -12,6 +12,8 @@ from app.api.v1.router import api_v1_router
 from app.core.config import get_settings
 from app.schemas.error import ErrorBody, ErrorResponse
 
+from app.db.session import init_db
+
 logger = logging.getLogger("medication_accessibility")
 settings = get_settings()
 
@@ -20,6 +22,7 @@ settings = get_settings()
 async def lifespan(_app: FastAPI) -> AsyncGenerator[None, None]:
     """Application lifespan management for setup and teardown."""
     logger.info("Initializing %s in %s environment...", settings.APP_NAME, settings.APP_ENV)
+    await init_db()
     yield
     logger.info("Shutting down %s...", settings.APP_NAME)
 

@@ -1,6 +1,5 @@
 """FastAPI Route Dependencies for Storage, Extractor, Service, and Session Injection."""
 
-from collections.abc import AsyncGenerator
 from typing import Annotated
 
 from fastapi import Depends
@@ -24,8 +23,7 @@ def get_storage_port(
     """Dependency for S3 Object Storage Port."""
     return S3ObjectStorage(
         bucket_name=settings.S3_BUCKET_NAME,
-        region=settings.AWS_REGION,
-        presigned_expiration_seconds=settings.S3_PRESIGNED_EXPIRATION_SECONDS,
+        region_name=settings.AWS_REGION,
     )
 
 
@@ -35,8 +33,7 @@ def get_vision_extractor(
     """Dependency for Vision Extraction Port (Bedrock Adapter)."""
     bedrock_config = BedrockProviderConfig(
         model_id=settings.BEDROCK_MODEL_ID,
-        fallback_model_id=settings.BEDROCK_FALLBACK_MODEL_ID,
-        region=settings.AWS_REGION,
+        region_name=settings.AWS_REGION,
         timeout_seconds=settings.BEDROCK_TIMEOUT_SECONDS,
         max_retries=settings.BEDROCK_MAX_RETRIES,
         temperature=settings.BEDROCK_TEMPERATURE,

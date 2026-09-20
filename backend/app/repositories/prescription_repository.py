@@ -122,6 +122,7 @@ class PrescriptionRepository:
             reasons=list(overall_safety.reasons),
             model_id=model_id,
         )
+        prescription.validation_result = validation_record
         self.session.add(validation_record)
 
         # 3. Persist MedicationResults
@@ -158,14 +159,10 @@ class PrescriptionRepository:
                 duration_unit=norm.duration_unit,
                 is_verified_safe=med.is_verified_safe,
             )
-            self.session.add(med_record)
+            prescription.medications.append(med_record)
 
         await self.session.flush()
-        # Re-fetch with loaded relationships (medications, validation_result, images)
-        reloaded = await self.get_by_id(prescription_id)
-        if not reloaded:
-            raise ValueError(f"Prescription {prescription_id} not found after saving")
-        return reloaded
+        return prescription
 
     async def record_failure(
         self,

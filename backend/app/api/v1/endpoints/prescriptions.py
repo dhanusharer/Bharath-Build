@@ -70,11 +70,12 @@ async def upload_and_process_prescription(
         )
 
     except IngestionValidationError as exc:
-        status_code = (
-            status.HTTP_413_CONTENT_TOO_LARGE
-            if exc.code == "FILE_SIZE_EXCEEDED"
-            else status.HTTP_400_BAD_REQUEST
-        )
+        if exc.code == "FILE_SIZE_EXCEEDED":
+            status_code = status.HTTP_413_CONTENT_TOO_LARGE
+        elif exc.code == "UNSUPPORTED_MEDIA_TYPE":
+            status_code = status.HTTP_415_UNSUPPORTED_MEDIA_TYPE
+        else:
+            status_code = status.HTTP_400_BAD_REQUEST
         raise HTTPException(
             status_code=status_code,
             detail=ErrorResponse(
@@ -90,13 +91,17 @@ async def upload_and_process_prescription(
 
     except StorageError as exc:
         # Sanitized error response - never leak raw AWS S3 error
-        logger.error("Storage failure during prescription upload: %s", str(exc), extra={"request_id": req_id})
+        logger.error(
+            "Storage failure during prescription upload: %s",
+            str(exc),
+            extra={"request_id": req_id},
+        )
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=ErrorResponse(
                 error=ErrorBody(
                     code="STORAGE_UNAVAILABLE",
-                    message="An error occurred while securely storing the prescription image. Please retry.",
+                    message="An error occurred while securely storing the image. Please retry.",
                     details=[],
                     request_id=req_id,
                     safe_action_required="CONSULT_PHARMACIST",
@@ -112,7 +117,7 @@ async def upload_and_process_prescription(
             detail=ErrorResponse(
                 error=ErrorBody(
                     code="EXTRACTION_FAILED",
-                    message="Failed to extract text from prescription image. Please try again with a clearer image.",
+                    message="Failed to extract text. Please try again with a clearer image.",
                     details=[],
                     request_id=req_id,
                     safe_action_required="CONSULT_PHARMACIST",

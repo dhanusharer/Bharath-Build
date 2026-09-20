@@ -20,6 +20,7 @@ from sqlalchemy.types import JSON
 
 class Base(DeclarativeBase):
     """Base declarative class for all ORM models."""
+
     pass
 
 

@@ -37,7 +37,6 @@ from app.main import app
 from app.ports.prescription_extractor import VisionExtractionPort
 from app.ports.storage import ObjectStoragePort
 from app.providers.bedrock.exceptions import (
-    BedrockExtractionError,
     BedrockTimeoutError,
 )
 from app.providers.storage.exceptions import StorageError, StorageUploadError
@@ -47,7 +46,6 @@ from app.schemas.prescription import (
     RawPrescriptionExtraction,
 )
 from app.services.prescription_extraction import PrescriptionExtractionService
-from app.services.prescription_ingestion import PrescriptionIngestionService
 
 # ------------------------------------------------------------------------------
 # Mock In-Memory Storage Port
@@ -68,6 +66,7 @@ class InMemoryStoragePort(ObjectStoragePort):
         content_type: str,
         metadata: dict[str, str] | None = None,
     ) -> str:
+        _ = (content_type, metadata)
         if self.should_fail_upload:
             raise StorageUploadError(key=key, details="Simulated S3 connection failure")
         self.storage[key] = data
@@ -110,6 +109,7 @@ class MockVisionExtractor(VisionExtractionPort):
         mime_type: str,
         request_id: str | None = None,
     ) -> RawPrescriptionExtraction:
+        _ = (image_bytes, mime_type)
         if self.should_fail:
             raise BedrockTimeoutError(timeout_seconds=30.0, request_id=request_id)
         if self.response_factory:
@@ -180,14 +180,22 @@ def mock_extractor():
 
 
 @pytest.fixture
-async def client(test_db_session: AsyncSession, mock_storage: InMemoryStoragePort, mock_extractor: MockVisionExtractor):
+async def client(
+    test_db_session: AsyncSession,
+    mock_storage: InMemoryStoragePort,
+    mock_extractor: MockVisionExtractor,
+):
     """Provide an AsyncClient configured with overridden DB, S3, and Extractor dependencies."""
     app.dependency_overrides[get_db_session] = lambda: test_db_session
     app.dependency_overrides[get_storage_port] = lambda: mock_storage
-    app.dependency_overrides[get_extraction_service] = lambda: PrescriptionExtractionService(extractor=mock_extractor)
-    app.dependency_overrides[get_prescription_repository] = lambda: PrescriptionRepository(session=test_db_session)
+    app.dependency_overrides[get_extraction_service] = lambda: PrescriptionExtractionService(
+        extractor=mock_extractor
+    )
+    app.dependency_overrides[get_prescription_repository] = lambda: PrescriptionRepository(
+        session=test_db_session
+    )
 
-    transport = ASGITransport(app=app)
+    transport = ASGITransport(app=app, raise_app_exceptions=False)
     async with AsyncClient(transport=transport, base_url="http://testserver") as test_client:
         yield test_client
 
@@ -201,7 +209,7 @@ async def client(test_db_session: AsyncSession, mock_storage: InMemoryStoragePor
 
 @pytest.mark.asyncio
 async def test_1_successful_upload(client: AsyncClient, mock_storage: InMemoryStoragePort):
-    """1. Successful upload: Valid JPEG returns HTTP 201 with completed status and verified medications."""
+    """1. Successful upload: Valid JPEG returns HTTP 201 with verified medications."""
     file_content = b"\xff\xd8\xff\xe0" + b"fake-jpeg-content-for-testing"
     files = {"file": ("prescription.jpg", io.BytesIO(file_content), "image/jpeg")}
     headers = {"X-Request-ID": "req-upload-001"}
@@ -237,13 +245,13 @@ async def test_1_successful_upload(client: AsyncClient, mock_storage: InMemorySt
 
 @pytest.mark.asyncio
 async def test_2_unsupported_mime_type(client: AsyncClient):
-    """2. Unsupported MIME type: PDF or text files rejected with 400 Bad Request."""
+    """2. Unsupported MIME type: PDF or text files rejected with 415 Unsupported Media Type."""
     files = {"file": ("doc.pdf", io.BytesIO(b"%PDF-1.4..."), "application/pdf")}
     response = await client.post("/api/v1/prescriptions", files=files)
 
-    assert response.status_code == 400
+    assert response.status_code == 415
     data = response.json()
-    assert data["detail"]["error"]["code"] == "INVALID_IMAGE_PAYLOAD"
+    assert data["detail"]["error"]["code"] == "UNSUPPORTED_MEDIA_TYPE"
     assert "Unsupported media type" in data["detail"]["error"]["message"]
 
 
@@ -273,7 +281,7 @@ async def test_4_oversized_file(client: AsyncClient):
 
 @pytest.mark.asyncio
 async def test_5_s3_upload_failure(client: AsyncClient, mock_storage: InMemoryStoragePort):
-    """5. S3 upload failure: Storage error handled gracefully without leaking credentials (HTTP 500)."""
+    """5. S3 upload failure: Storage error handled gracefully without leaking credentials."""
     mock_storage.should_fail_upload = True
     files = {"file": ("rx.webp", io.BytesIO(b"RIFF....WEBP"), "image/webp")}
     response = await client.post("/api/v1/prescriptions", files=files)
@@ -287,6 +295,7 @@ async def test_5_s3_upload_failure(client: AsyncClient, mock_storage: InMemorySt
 @pytest.mark.asyncio
 async def test_6_successful_extraction(client: AsyncClient):
     """6. Successful extraction: Verifies full multi-medication extraction pipeline."""
+
     def two_meds_factory():
         return RawPrescriptionExtraction(
             prescription_id="rx-multi-01",
@@ -333,6 +342,7 @@ async def test_6_successful_extraction(client: AsyncClient):
 @pytest.mark.asyncio
 async def test_7_low_confidence_extraction(client: AsyncClient):
     """7. Low-confidence extraction: Triggers REQUIRES_REVIEW and flags safety reasons."""
+
     def low_conf_factory():
         return RawPrescriptionExtraction(
             prescription_id="rx-low-conf",
@@ -360,13 +370,14 @@ async def test_7_low_confidence_extraction(client: AsyncClient):
     data = response.json()
     assert data["status"] == "REQUIRES_REVIEW"
     assert data["requires_review"] is True
-    assert any("Confidence" in r for r in data["safety_reasons"])
+    assert any("confidence" in r.lower() for r in data["safety_reasons"])
     assert data["medications"][0]["is_verified_safe"] is False
 
 
 @pytest.mark.asyncio
 async def test_8_unreadable_prescription(client: AsyncClient):
-    """8. Unreadable prescription: Fatal illegibility triggers REQUIRES_REVIEW with refusal explanation."""
+    """8. Unreadable prescription: Fatal illegibility triggers review with explanation."""
+
     def unreadable_factory():
         return RawPrescriptionExtraction(
             prescription_id="rx-unreadable",
@@ -390,12 +401,17 @@ async def test_8_unreadable_prescription(client: AsyncClient):
     data = response.json()
     assert data["status"] == "REQUIRES_REVIEW"
     assert data["requires_review"] is True
-    assert any("illegible" in r.lower() or "unreadable" in r.lower() for r in data["safety_reasons"])
+    assert any(
+        "illegible" in r.lower() or "unreadable" in r.lower() for r in data["safety_reasons"]
+    )
 
 
 @pytest.mark.asyncio
-async def test_9_normalization_result_persistence(client: AsyncClient, test_db_session: AsyncSession):
-    """9. Normalization result persistence: Database models correctly persist raw and normalized records."""
+async def test_9_normalization_result_persistence(
+    client: AsyncClient,
+    test_db_session: AsyncSession,
+):
+    """9. Normalization result persistence: DB models persist raw and normalized data."""
     files = {"file": ("rx.jpg", io.BytesIO(b"\xff\xd8\xff\xe0..."), "image/jpeg")}
     response = await client.post("/api/v1/prescriptions", files=files)
     assert response.status_code == 201
@@ -419,7 +435,7 @@ async def test_9_normalization_result_persistence(client: AsyncClient, test_db_s
 
 
 @pytest.mark.asyncio
-async def test_10_database_failure(client: AsyncClient, test_db_session: AsyncSession):
+async def test_10_database_failure(client: AsyncClient):
     """10. Database failure: Handled gracefully via global exception handler."""
     # Mock repository flush to simulate DB failure
     mock_repo = MagicMock(spec=PrescriptionRepository)
@@ -467,7 +483,7 @@ async def test_12_get_unknown_prescription_id(client: AsyncClient):
 
 @pytest.mark.asyncio
 async def test_13_processing_failure(client: AsyncClient):
-    """13. Processing failure: Upstream extractor failure returns 500 without leaking stack traces."""
+    """13. Processing failure: Upstream extractor failure returns 500 without stack traces."""
     app.dependency_overrides[get_extraction_service] = lambda: PrescriptionExtractionService(
         extractor=MockVisionExtractor(should_fail=True)
     )
