@@ -6,13 +6,14 @@ WORKDIR /app
 # Install uv for fast dependency management
 COPY --from=ghcr.io/astral-sh/uv:0.4.18 /uv /bin/uv
 
-# Copy dependency specifications and lockfile for deterministic installation
-COPY pyproject.toml uv.lock ./
+# Copy dependency specifications, project metadata, and app package
+COPY pyproject.toml README.md ./
+COPY app/ ./app/
 
 # Install dependencies using uv into a virtual environment
 RUN uv venv /opt/venv && \
     . /opt/venv/bin/activate && \
-    uv pip install --no-cache -e .
+    uv pip install --no-cache .
 
 # ------------------------------------------------------------------------------
 # Production Runner
