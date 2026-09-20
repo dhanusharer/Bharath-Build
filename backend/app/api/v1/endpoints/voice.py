@@ -52,8 +52,8 @@ router = APIRouter(prefix="/voice", tags=["voice"])
 async def transcribe_speech(
     request: Request,
     file: UploadFile,
+    stt_port: Annotated[SpeechToTextPort, Depends(get_stt_port)],
     language: Annotated[str, Form()] = "en-IN",
-    stt_port: Annotated[SpeechToTextPort, Depends(get_stt_port)] = None,  # type: ignore[assignment]
     x_request_id: Annotated[str | None, Header(alias="X-Request-ID")] = None,
 ) -> TranscribeResponse:
     """Transcribe spoken audio bytes to text using SpeechToTextPort."""
@@ -135,8 +135,8 @@ async def query_prescription_voice(
     request: Request,
     file: UploadFile,
     prescription_id: Annotated[str, Form()],
+    voice_service: Annotated[VoiceQueryService, Depends(get_voice_query_service)],
     language: Annotated[str, Form()] = "en-IN",
-    voice_service: Annotated[VoiceQueryService, Depends(get_voice_query_service)] = None,  # type: ignore[assignment]
     x_request_id: Annotated[str | None, Header(alias="X-Request-ID")] = None,
 ) -> VoiceQueryResponse:
     """End-to-end voice posology query against existing verified prescription data."""

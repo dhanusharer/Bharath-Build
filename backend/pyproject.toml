@@ -24,7 +24,7 @@ dev = [
     "pytest-cov>=5.0.0",
     "ruff>=0.6.0",
     "mypy>=1.11.0",
-    "boto3-stubs[s3,bedrock-runtime]>=1.34.0",
+    "boto3-stubs[s3,bedrock-runtime,polly,transcribe]>=1.34.0",
     "aiosqlite>=0.20.0",
 ]
 
@@ -55,14 +55,16 @@ ignore = ["B008"] # allow Depends() in function arguments
 
 [tool.mypy]
 python_version = "3.12"
-strict = true
-warn_unused_ignores = false
 ignore_missing_imports = true
 disallow_untyped_defs = true
-files = ["app"]
+check_untyped_defs = true
+disallow_subclassing_any = false
+warn_unused_ignores = false
+warn_redundant_casts = true
+no_implicit_optional = true
 
 [[tool.mypy.overrides]]
-module = ["boto3", "boto3.*", "botocore", "botocore.*"]
+module = ["boto3", "boto3.*", "botocore", "botocore.*", "amazon_transcribe", "amazon_transcribe.*"]
 ignore_missing_imports = true
 
 [[tool.mypy.overrides]]

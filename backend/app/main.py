@@ -1,11 +1,12 @@
 import logging
 import uuid
-from collections.abc import AsyncGenerator
+from collections.abc import AsyncGenerator, Awaitable, Callable
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from starlette.responses import Response
 
 from app.api.v1.endpoints import health
 from app.api.v1.router import api_v1_router
@@ -49,7 +50,9 @@ app.add_middleware(
 
 
 @app.middleware("http")
-async def correlation_id_middleware(request: Request, call_next):  # type: ignore[no-untyped-def]
+async def correlation_id_middleware(
+    request: Request, call_next: Callable[[Request], Awaitable[Response]]
+) -> Response:
     """Inject and propagate X-Request-ID correlation identifier."""
     request_id = request.headers.get("X-Request-ID") or str(uuid.uuid4())
     response = await call_next(request)

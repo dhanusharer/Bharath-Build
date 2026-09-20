@@ -61,10 +61,19 @@ class Settings(BaseSettings):
     def assemble_cors_origins(cls, v: str | list[str] | None) -> list[str] | None:
         if v is None:
             return None
-        if isinstance(v, str) and not v.startswith("["):
+        if isinstance(v, list):
+            return [str(i) for i in v]
+        if isinstance(v, str):
+            if v.startswith("[") and v.endswith("]"):
+                import json
+
+                try:
+                    parsed = json.loads(v)
+                    if isinstance(parsed, list):
+                        return [str(i) for i in parsed]
+                except Exception:
+                    pass
             return [i.strip() for i in v.split(",") if i.strip()]
-        if isinstance(v, (list, str)):
-            return v  # type: ignore[return-value]
         raise ValueError("Invalid format for CORS origins")
 
     @property

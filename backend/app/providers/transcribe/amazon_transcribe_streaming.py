@@ -11,6 +11,7 @@ import logging
 from typing import Any
 
 import boto3
+import boto3.session
 from botocore.exceptions import NoCredentialsError
 
 from app.ports.stt import SpeechToTextPort, TranscriptResult
@@ -55,7 +56,7 @@ class AmazonTranscribeStreamingProvider(SpeechToTextPort):
     def __init__(
         self,
         region_name: str = "ap-south-1",
-        session: boto3.Session | None = None,
+        session: boto3.session.Session | None = None,
         fallback_batch_provider: SpeechToTextPort | None = None,
     ) -> None:
         self.region_name = region_name
@@ -66,7 +67,7 @@ class AmazonTranscribeStreamingProvider(SpeechToTextPort):
         """Create static credential resolver from active boto3 session."""
         from amazon_transcribe.auth import StaticCredentialResolver
 
-        session = self._session or boto3.Session()
+        session = self._session or boto3.session.Session()
         creds = session.get_credentials()
         if not creds:
             raise NoCredentialsError()
@@ -159,13 +160,13 @@ class AmazonTranscribeStreamingProvider(SpeechToTextPort):
                         break
                     await stream.input_stream.send_audio_event(audio_chunk=chunk)
                     await asyncio.sleep(0.005)
-                await stream.input_stream.end_stream()  # type: ignore[no-untyped-call]
+                await stream.input_stream.end_stream()
 
             # Wait with bounded 10s timeout
             await asyncio.wait_for(
                 asyncio.gather(
                     write_audio_chunks(),
-                    handler.handle_events(),  # type: ignore[no-untyped-call]
+                    handler.handle_events(),
                 ),
                 timeout=10.0,
             )
