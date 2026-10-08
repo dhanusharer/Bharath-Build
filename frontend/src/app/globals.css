@@ -73,7 +73,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Superpower Monolithic Display Headings (Weight 400 whisper-weight) */
+/* MedTwin Clinical Monolithic Display Headings */
+.medtwin-display,
 .superpower-display {
   font-size: 66px;
   line-height: 1.0;
@@ -82,6 +83,7 @@ body {
 }
 
 @media (max-width: 768px) {
+  .medtwin-display,
   .superpower-display {
     font-size: 40px;
     line-height: 1.08;
@@ -89,6 +91,7 @@ body {
   }
 }
 
+.medtwin-heading-lg,
 .superpower-heading-lg {
   font-size: 45px;
   line-height: 1.13;
@@ -97,12 +100,14 @@ body {
 }
 
 @media (max-width: 768px) {
+  .medtwin-heading-lg,
   .superpower-heading-lg {
     font-size: 32px;
     line-height: 1.2;
   }
 }
 
+.medtwin-heading,
 .superpower-heading {
   font-size: 30px;
   line-height: 1.2;
@@ -110,30 +115,35 @@ body {
   font-weight: 400;
 }
 
+.medtwin-heading-sm,
 .superpower-heading-sm {
   font-size: 22px;
   line-height: 1.25;
   letter-spacing: -0.012em;
 }
 
+.medtwin-subheading,
 .superpower-subheading {
   font-size: 19px;
   line-height: 1.4;
   letter-spacing: -0.009em;
 }
 
+.medtwin-body-lg,
 .superpower-body-lg {
   font-size: 17px;
   line-height: 1.4;
   letter-spacing: -0.009em;
 }
 
+.medtwin-body,
 .superpower-body {
   font-size: 15px;
   line-height: 1.5;
   letter-spacing: -0.005em;
 }
 
+.medtwin-caption,
 .superpower-caption {
   font-size: 11px;
   line-height: 1.5;

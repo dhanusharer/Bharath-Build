@@ -135,6 +135,79 @@ class VoiceQueryService:
                 safety_reasons=["Unsupported voice query intent"],
             )
 
+        # 6b. Digital Twin specific queries (Glucose Trend and Adverse Risk Score)
+        if intent_res.intent == VoiceIntentType.GLUCOSE_TREND:
+            from app.services.digital_twin_engine import get_digital_twin_engine
+
+            engine = get_digital_twin_engine()
+            twin = engine.get_twin_state("PT-101")
+            g = twin.current_glucose if twin and twin.current_glucose else 125.0
+            slope = twin.rolling_glucose_trend if twin else 0.0
+            if "hi" in language:
+                response_text = f"डिजिटल ट्विन स्थिति: आपका वर्तमान ग्लूकोज {g:.0f} मिलीग्राम प्रति डेसीलीटर है और ट्रेंड स्लोप {slope:+.1f} प्रति घंटा है।"
+            elif "kn" in language:
+                response_text = f"ಡಿಜಿಟಲ್ ಟ್ವಿನ್ ಸ್ಥಿತಿ: ನಿಮ್ಮ ಪ್ರಸ್ತುತ ಗ್ಲೂಕೋಸ್ {g:.0f} mg/dL ಆಗಿದೆ ಮತ್ತು ಟ್ರೆಂಡ್ {slope:+.1f} ಪ್ರತಿ ಗಂಟೆ ಆಗಿದೆ."
+            else:
+                response_text = f"Digital Twin State: Your current glucose is {g:.0f} mg/dL with a trend slope of {slope:+.1f} mg/dL per hour."
+
+            audio_b64 = None
+            try:
+                tts_res = await self.tts.synthesize(text=response_text, language=language)
+                audio_b64 = base64.b64encode(tts_res.audio_bytes).decode("ascii")
+            except Exception as e:
+                logger.error("TTS synthesis failed for twin query: %s", str(e))
+
+            return VoiceQueryResponse(
+                success=True,
+                request_id=request_id,
+                prescription_id=prescription_id,
+                transcript=transcript_text,
+                intent=intent_res.intent.value,
+                target_drug=None,
+                response_text=response_text,
+                audio_base64=audio_b64,
+                language=language,
+                requires_review=False,
+                result_state=VoiceQueryResultState.CONFIRMED_MATCH,
+                safety_reasons=[],
+            )
+
+        if intent_res.intent == VoiceIntentType.RISK_SCORE:
+            from app.services.digital_twin_engine import get_digital_twin_engine
+
+            engine = get_digital_twin_engine()
+            twin = engine.get_twin_state("PT-101")
+            risk_pct = round((twin.risk_score * 100.0) if twin else 18.0)
+            cat = twin.risk_category if twin else "LOW"
+            if "hi" in language:
+                response_text = f"पूर्वानुमानित प्रतिकूल जोखिम: अगले 2 घंटों के लिए आपका जोखिम स्कोर {risk_pct} प्रतिशत है, जो {cat} श्रेणी में है।"
+            elif "kn" in language:
+                response_text = f"ಮುನ್ಸೂಚನಾ ಅಪಾಯ: ಮುಂದಿನ 2 ಗಂಟೆಗಳಲ್ಲಿ ನಿಮ್ಮ ಅಪಾಯದ ಸಂಭವನೀಯತೆ {risk_pct} ಪ್ರತಿಶತ ಆಗಿದೆ ({cat})."
+            else:
+                response_text = f"Forecasted Adverse Risk: Your 2-hour predicted risk score is {risk_pct} percent, categorized as {cat}."
+
+            audio_b64 = None
+            try:
+                tts_res = await self.tts.synthesize(text=response_text, language=language)
+                audio_b64 = base64.b64encode(tts_res.audio_bytes).decode("ascii")
+            except Exception as e:
+                logger.error("TTS synthesis failed for twin query: %s", str(e))
+
+            return VoiceQueryResponse(
+                success=True,
+                request_id=request_id,
+                prescription_id=prescription_id,
+                transcript=transcript_text,
+                intent=intent_res.intent.value,
+                target_drug=None,
+                response_text=response_text,
+                audio_base64=audio_b64,
+                language=language,
+                requires_review=False,
+                result_state=VoiceQueryResultState.CONFIRMED_MATCH,
+                safety_reasons=[],
+            )
+
         # 7. Map all medications to CanonicalMedicationFact
         all_facts: list[CanonicalMedicationFact] = []
         for m in prescription.medications:

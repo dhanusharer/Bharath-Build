@@ -15,10 +15,10 @@ IMG_3 = BRAIN_DIR / "screenshot_3_1789930057450.png"
 IMG_4 = BRAIN_DIR / "screenshot_4_1789930084415.png"
 
 PANELS = [
-    (IMG_1, "01 • Bioluminescent Hero & Floating Pill Navigation"),
-    (IMG_2, "02 • Clinical Ingestion Studio & Verified Posology Matrix"),
-    (IMG_3, "03 • 24h Chronobiological Bio-Clock & Multilingual Voice Studio"),
-    (IMG_4, "04 • Transparent Clinical Membership & Marbled Card ($17/mo)"),
+    (IMG_1, "01 • MedTwin AI Clinician Command Center & Twin State"),
+    (IMG_2, "02 • Medication Verification Layer & Posology Schedule"),
+    (IMG_3, "03 • Dynamic Multi-Signal Timeline & Vernacular Voice"),
+    (IMG_4, "04 • 2-Hour Adverse Risk Forecast & Explainability Engine"),
 ]
 
 def add_browser_frame(img_path: Path, title: str, target_w: int = 900, target_h: int = 560) -> Image.Image:
@@ -98,8 +98,8 @@ def main() -> None:
         title_font = ImageFont.load_default()
         sub_font = ImageFont.load_default()
         
-    draw.text((padding + 4, padding + 4), "BHARAT BUILDS × SUPERPOWER — BIOLUMINESCENT HEALTH COMMAND CENTER", fill=(255, 255, 255), font=title_font)
-    draw.text((padding + 4, padding + 36), "Multimodal Clinical Posology Digitization • Real-Time Streaming Vernacular Voice AI • Deterministic Safety Gate", fill=(252, 95, 43), font=sub_font)
+    draw.text((padding + 4, padding + 4), "MEDTWIN AI — MEDICATION-AWARE HEALTHCARE DIGITAL TWIN", fill=(255, 255, 255), font=title_font)
+    draw.text((padding + 4, padding + 36), "Happiest Health 2026 PoC • Fusing Static EHR + Verified Regimens + Wearable Streams • 2h Adverse Risk Forecasting", fill=(96, 165, 250), font=sub_font)
     
     # Coordinates for 2x2
     # Panel 0: top-left

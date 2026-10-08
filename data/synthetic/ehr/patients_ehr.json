@@ -1,0 +1,4055 @@
+[
+  {
+    "patient_id": "PT-101",
+    "name": "Mohan Desai",
+    "age": 57,
+    "sex": "Male",
+    "bmi": 25.7,
+    "diabetes_duration_years": 3.5,
+    "hba1c": 6.4,
+    "fasting_glucose": 113.3,
+    "baseline_glucose": 128.9,
+    "baseline_hr": 74.6,
+    "baseline_hrv": 42.4,
+    "baseline_sleep_hours": 6.3,
+    "baseline_steps": 5895,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Hypothyroidism",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Dapagliflozin",
+        "strength": "10 mg",
+        "frequency": "1-0-0",
+        "meal": "morning",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-102",
+    "name": "Manoj Gupta",
+    "age": 50,
+    "sex": "Male",
+    "bmi": 31.0,
+    "diabetes_duration_years": 6.4,
+    "hba1c": 7.2,
+    "fasting_glucose": 136.3,
+    "baseline_glucose": 149.0,
+    "baseline_hr": 65.7,
+    "baseline_hrv": 42.4,
+    "baseline_sleep_hours": 7.6,
+    "baseline_steps": 8122,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Essential Hypertension",
+      "Mild Diabetic Neuropathy"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-103",
+    "name": "Mohan Reddy",
+    "age": 44,
+    "sex": "Male",
+    "bmi": 23.3,
+    "diabetes_duration_years": 4.8,
+    "hba1c": 6.6,
+    "fasting_glucose": 101.2,
+    "baseline_glucose": 112.5,
+    "baseline_hr": 65.8,
+    "baseline_hrv": 51.1,
+    "baseline_sleep_hours": 7.2,
+    "baseline_steps": 6688,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Hypothyroidism",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Telmisartan",
+        "strength": "40 mg",
+        "frequency": "0-1-0",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Atorvastatin",
+        "strength": "10 mg",
+        "frequency": "0-0-1",
+        "meal": "at bedtime",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-104",
+    "name": "Asha Patel",
+    "age": 55,
+    "sex": "Male",
+    "bmi": 24.7,
+    "diabetes_duration_years": 7.0,
+    "hba1c": 7.8,
+    "fasting_glucose": 141.6,
+    "baseline_glucose": 157.4,
+    "baseline_hr": 76.3,
+    "baseline_hrv": 52.6,
+    "baseline_sleep_hours": 7.4,
+    "baseline_steps": 5874,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Mild Diabetic Neuropathy",
+      "Metabolic Syndrome",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-105",
+    "name": "Sanjay Menon",
+    "age": 71,
+    "sex": "Male",
+    "bmi": 27.4,
+    "diabetes_duration_years": 14.8,
+    "hba1c": 8.3,
+    "fasting_glucose": 143.2,
+    "baseline_glucose": 154.7,
+    "baseline_hr": 74.1,
+    "baseline_hrv": 39.0,
+    "baseline_sleep_hours": 7.1,
+    "baseline_steps": 9886,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Dyslipidemia",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Dapagliflozin",
+        "strength": "10 mg",
+        "frequency": "1-0-0",
+        "meal": "morning",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-106",
+    "name": "Sunita Desai",
+    "age": 50,
+    "sex": "Male",
+    "bmi": 32.1,
+    "diabetes_duration_years": 7.6,
+    "hba1c": 7.3,
+    "fasting_glucose": 124.1,
+    "baseline_glucose": 146.0,
+    "baseline_hr": 73.5,
+    "baseline_hrv": 51.3,
+    "baseline_sleep_hours": 7.6,
+    "baseline_steps": 4568,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Hypothyroidism",
+      "Metabolic Syndrome"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-107",
+    "name": "Ananya Kulkarni",
+    "age": 56,
+    "sex": "Male",
+    "bmi": 34.2,
+    "diabetes_duration_years": 12.5,
+    "hba1c": 8.6,
+    "fasting_glucose": 145.9,
+    "baseline_glucose": 162.7,
+    "baseline_hr": 79.2,
+    "baseline_hrv": 42.9,
+    "baseline_sleep_hours": 6.5,
+    "baseline_steps": 6743,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Dapagliflozin",
+        "strength": "10 mg",
+        "frequency": "1-0-0",
+        "meal": "morning",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-108",
+    "name": "Rajesh Desai",
+    "age": 59,
+    "sex": "Female",
+    "bmi": 25.6,
+    "diabetes_duration_years": 5.0,
+    "hba1c": 7.1,
+    "fasting_glucose": 112.2,
+    "baseline_glucose": 130.4,
+    "baseline_hr": 78.7,
+    "baseline_hrv": 52.1,
+    "baseline_sleep_hours": 7.1,
+    "baseline_steps": 5254,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Metabolic Syndrome"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Dapagliflozin",
+        "strength": "10 mg",
+        "frequency": "1-0-0",
+        "meal": "morning",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-109",
+    "name": "Pooja Nair",
+    "age": 59,
+    "sex": "Male",
+    "bmi": 27.5,
+    "diabetes_duration_years": 11.2,
+    "hba1c": 7.8,
+    "fasting_glucose": 148.1,
+    "baseline_glucose": 162.4,
+    "baseline_hr": 68.5,
+    "baseline_hrv": 41.0,
+    "baseline_sleep_hours": 6.2,
+    "baseline_steps": 7823,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-110",
+    "name": "Sunita Iyer",
+    "age": 42,
+    "sex": "Male",
+    "bmi": 32.9,
+    "diabetes_duration_years": 2.5,
+    "hba1c": 7.0,
+    "fasting_glucose": 124.7,
+    "baseline_glucose": 135.7,
+    "baseline_hr": 66.4,
+    "baseline_hrv": 53.3,
+    "baseline_sleep_hours": 7.1,
+    "baseline_steps": 7336,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Dyslipidemia",
+      "Essential Hypertension",
+      "Grade 1 Fatty Liver (NAFLD)"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-111",
+    "name": "Pooja Kulkarni",
+    "age": 46,
+    "sex": "Male",
+    "bmi": 23.5,
+    "diabetes_duration_years": 12.1,
+    "hba1c": 8.1,
+    "fasting_glucose": 134.9,
+    "baseline_glucose": 145.6,
+    "baseline_hr": 73.7,
+    "baseline_hrv": 48.7,
+    "baseline_sleep_hours": 6.5,
+    "baseline_steps": 7275,
+    "has_hypertension": false,
+    "comorbidities": [],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-112",
+    "name": "Divya Desai",
+    "age": 40,
+    "sex": "Male",
+    "bmi": 34.1,
+    "diabetes_duration_years": 14.9,
+    "hba1c": 9.3,
+    "fasting_glucose": 162.8,
+    "baseline_glucose": 177.6,
+    "baseline_hr": 67.8,
+    "baseline_hrv": 47.4,
+    "baseline_sleep_hours": 6.3,
+    "baseline_steps": 6773,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Mild Diabetic Neuropathy",
+      "Metabolic Syndrome"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-113",
+    "name": "Swati Hegde",
+    "age": 52,
+    "sex": "Male",
+    "bmi": 26.3,
+    "diabetes_duration_years": 15.5,
+    "hba1c": 8.4,
+    "fasting_glucose": 152.4,
+    "baseline_glucose": 170.9,
+    "baseline_hr": 65.0,
+    "baseline_hrv": 49.8,
+    "baseline_sleep_hours": 7.0,
+    "baseline_steps": 9616,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "Penicillin"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "850 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Glimepiride",
+        "strength": "1 mg",
+        "frequency": "1-0-0",
+        "meal": "before breakfast",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-114",
+    "name": "Asha Iyer",
+    "age": 47,
+    "sex": "Female",
+    "bmi": 33.8,
+    "diabetes_duration_years": 9.8,
+    "hba1c": 8.4,
+    "fasting_glucose": 139.8,
+    "baseline_glucose": 148.9,
+    "baseline_hr": 75.8,
+    "baseline_hrv": 46.9,
+    "baseline_sleep_hours": 6.7,
+    "baseline_steps": 6064,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Dyslipidemia",
+      "Metabolic Syndrome"
+    ],
+    "allergies": [
+      "Aspirin"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-115",
+    "name": "Meera Kulkarni",
+    "age": 44,
+    "sex": "Female",
+    "bmi": 22.9,
+    "diabetes_duration_years": 10.5,
+    "hba1c": 7.5,
+    "fasting_glucose": 121.5,
+    "baseline_glucose": 137.0,
+    "baseline_hr": 73.1,
+    "baseline_hrv": 49.7,
+    "baseline_sleep_hours": 6.8,
+    "baseline_steps": 4912,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Dyslipidemia",
+      "Mild Diabetic Neuropathy",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Dapagliflozin",
+        "strength": "10 mg",
+        "frequency": "1-0-0",
+        "meal": "morning",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-116",
+    "name": "Ritu Kumar",
+    "age": 46,
+    "sex": "Female",
+    "bmi": 33.8,
+    "diabetes_duration_years": 3.4,
+    "hba1c": 7.0,
+    "fasting_glucose": 110.7,
+    "baseline_glucose": 126.4,
+    "baseline_hr": 68.9,
+    "baseline_hrv": 47.7,
+    "baseline_sleep_hours": 7.3,
+    "baseline_steps": 5721,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Mild Diabetic Neuropathy"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Telmisartan",
+        "strength": "40 mg",
+        "frequency": "0-1-0",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Atorvastatin",
+        "strength": "10 mg",
+        "frequency": "0-0-1",
+        "meal": "at bedtime",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-117",
+    "name": "Sunita Patel",
+    "age": 57,
+    "sex": "Female",
+    "bmi": 23.3,
+    "diabetes_duration_years": 6.3,
+    "hba1c": 6.6,
+    "fasting_glucose": 123.7,
+    "baseline_glucose": 134.0,
+    "baseline_hr": 72.0,
+    "baseline_hrv": 51.2,
+    "baseline_sleep_hours": 7.1,
+    "baseline_steps": 5171,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Grade 1 Fatty Liver (NAFLD)"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-118",
+    "name": "Sanjay Verma",
+    "age": 48,
+    "sex": "Female",
+    "bmi": 23.3,
+    "diabetes_duration_years": 6.8,
+    "hba1c": 7.6,
+    "fasting_glucose": 145.5,
+    "baseline_glucose": 154.1,
+    "baseline_hr": 70.4,
+    "baseline_hrv": 54.1,
+    "baseline_sleep_hours": 7.3,
+    "baseline_steps": 6622,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Dyslipidemia",
+      "Hypothyroidism",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "850 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Glimepiride",
+        "strength": "1 mg",
+        "frequency": "1-0-0",
+        "meal": "before breakfast",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-119",
+    "name": "Ananya Bose",
+    "age": 51,
+    "sex": "Male",
+    "bmi": 31.4,
+    "diabetes_duration_years": 6.3,
+    "hba1c": 8.2,
+    "fasting_glucose": 154.5,
+    "baseline_glucose": 174.6,
+    "baseline_hr": 78.6,
+    "baseline_hrv": 43.6,
+    "baseline_sleep_hours": 7.5,
+    "baseline_steps": 5148,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Dyslipidemia",
+      "Hypothyroidism",
+      "Mild Diabetic Neuropathy"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Telmisartan",
+        "strength": "40 mg",
+        "frequency": "0-1-0",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Atorvastatin",
+        "strength": "10 mg",
+        "frequency": "0-0-1",
+        "meal": "at bedtime",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-120",
+    "name": "Kavita Iyer",
+    "age": 52,
+    "sex": "Male",
+    "bmi": 27.5,
+    "diabetes_duration_years": 5.5,
+    "hba1c": 6.7,
+    "fasting_glucose": 120.7,
+    "baseline_glucose": 133.6,
+    "baseline_hr": 73.2,
+    "baseline_hrv": 50.2,
+    "baseline_sleep_hours": 7.5,
+    "baseline_steps": 6486,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Dyslipidemia",
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "Aspirin"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Telmisartan",
+        "strength": "40 mg",
+        "frequency": "0-1-0",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Atorvastatin",
+        "strength": "10 mg",
+        "frequency": "0-0-1",
+        "meal": "at bedtime",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-121",
+    "name": "Pooja Reddy",
+    "age": 67,
+    "sex": "Female",
+    "bmi": 29.9,
+    "diabetes_duration_years": 8.9,
+    "hba1c": 7.7,
+    "fasting_glucose": 137.8,
+    "baseline_glucose": 149.4,
+    "baseline_hr": 76.8,
+    "baseline_hrv": 36.0,
+    "baseline_sleep_hours": 7.7,
+    "baseline_steps": 7730,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Metabolic Syndrome"
+    ],
+    "allergies": [
+      "Aspirin"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-122",
+    "name": "Deepak Menon",
+    "age": 59,
+    "sex": "Male",
+    "bmi": 28.7,
+    "diabetes_duration_years": 11.2,
+    "hba1c": 7.8,
+    "fasting_glucose": 143.0,
+    "baseline_glucose": 158.8,
+    "baseline_hr": 67.5,
+    "baseline_hrv": 46.8,
+    "baseline_sleep_hours": 6.8,
+    "baseline_steps": 8988,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Mild Diabetic Neuropathy",
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-123",
+    "name": "Ramesh Bose",
+    "age": 69,
+    "sex": "Female",
+    "bmi": 28.0,
+    "diabetes_duration_years": 11.3,
+    "hba1c": 8.0,
+    "fasting_glucose": 149.8,
+    "baseline_glucose": 171.2,
+    "baseline_hr": 77.2,
+    "baseline_hrv": 43.7,
+    "baseline_sleep_hours": 6.7,
+    "baseline_steps": 8483,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "850 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Glimepiride",
+        "strength": "1 mg",
+        "frequency": "1-0-0",
+        "meal": "before breakfast",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-124",
+    "name": "Kavita Nair",
+    "age": 41,
+    "sex": "Male",
+    "bmi": 23.3,
+    "diabetes_duration_years": 15.8,
+    "hba1c": 8.3,
+    "fasting_glucose": 155.8,
+    "baseline_glucose": 170.2,
+    "baseline_hr": 80.0,
+    "baseline_hrv": 55.4,
+    "baseline_sleep_hours": 7.3,
+    "baseline_steps": 6803,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Hypothyroidism",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-125",
+    "name": "Priya Bose",
+    "age": 51,
+    "sex": "Male",
+    "bmi": 32.2,
+    "diabetes_duration_years": 11.6,
+    "hba1c": 8.3,
+    "fasting_glucose": 150.5,
+    "baseline_glucose": 171.3,
+    "baseline_hr": 66.2,
+    "baseline_hrv": 41.7,
+    "baseline_sleep_hours": 6.9,
+    "baseline_steps": 7686,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Mild Diabetic Neuropathy",
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Dapagliflozin",
+        "strength": "10 mg",
+        "frequency": "1-0-0",
+        "meal": "morning",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-126",
+    "name": "Divya Kulkarni",
+    "age": 70,
+    "sex": "Male",
+    "bmi": 28.1,
+    "diabetes_duration_years": 12.4,
+    "hba1c": 8.5,
+    "fasting_glucose": 147.9,
+    "baseline_glucose": 166.8,
+    "baseline_hr": 72.7,
+    "baseline_hrv": 38.7,
+    "baseline_sleep_hours": 6.9,
+    "baseline_steps": 8781,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Metabolic Syndrome",
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "Penicillin"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-127",
+    "name": "Arun Verma",
+    "age": 44,
+    "sex": "Male",
+    "bmi": 27.7,
+    "diabetes_duration_years": 6.3,
+    "hba1c": 7.3,
+    "fasting_glucose": 116.2,
+    "baseline_glucose": 135.9,
+    "baseline_hr": 71.0,
+    "baseline_hrv": 53.8,
+    "baseline_sleep_hours": 7.7,
+    "baseline_steps": 4617,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Mild Diabetic Neuropathy",
+      "Essential Hypertension",
+      "Metabolic Syndrome"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Telmisartan",
+        "strength": "40 mg",
+        "frequency": "0-1-0",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Atorvastatin",
+        "strength": "10 mg",
+        "frequency": "0-0-1",
+        "meal": "at bedtime",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-128",
+    "name": "Pooja Iyer",
+    "age": 54,
+    "sex": "Female",
+    "bmi": 26.0,
+    "diabetes_duration_years": 8.5,
+    "hba1c": 7.3,
+    "fasting_glucose": 131.3,
+    "baseline_glucose": 150.5,
+    "baseline_hr": 77.0,
+    "baseline_hrv": 52.1,
+    "baseline_sleep_hours": 7.7,
+    "baseline_steps": 10384,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Hypothyroidism",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-129",
+    "name": "Vikram Kulkarni",
+    "age": 43,
+    "sex": "Male",
+    "bmi": 25.8,
+    "diabetes_duration_years": 6.2,
+    "hba1c": 7.1,
+    "fasting_glucose": 118.6,
+    "baseline_glucose": 138.9,
+    "baseline_hr": 69.0,
+    "baseline_hrv": 57.3,
+    "baseline_sleep_hours": 6.9,
+    "baseline_steps": 9509,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Telmisartan",
+        "strength": "40 mg",
+        "frequency": "0-1-0",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Atorvastatin",
+        "strength": "10 mg",
+        "frequency": "0-0-1",
+        "meal": "at bedtime",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-130",
+    "name": "Amit Sharma",
+    "age": 55,
+    "sex": "Male",
+    "bmi": 25.1,
+    "diabetes_duration_years": 1.8,
+    "hba1c": 6.2,
+    "fasting_glucose": 93.6,
+    "baseline_glucose": 111.0,
+    "baseline_hr": 74.2,
+    "baseline_hrv": 45.5,
+    "baseline_sleep_hours": 7.3,
+    "baseline_steps": 9101,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "850 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Glimepiride",
+        "strength": "1 mg",
+        "frequency": "1-0-0",
+        "meal": "before breakfast",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-131",
+    "name": "Priya Kumar",
+    "age": 64,
+    "sex": "Female",
+    "bmi": 27.4,
+    "diabetes_duration_years": 11.9,
+    "hba1c": 7.5,
+    "fasting_glucose": 136.3,
+    "baseline_glucose": 153.1,
+    "baseline_hr": 65.8,
+    "baseline_hrv": 47.1,
+    "baseline_sleep_hours": 7.6,
+    "baseline_steps": 8102,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Telmisartan",
+        "strength": "40 mg",
+        "frequency": "0-1-0",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Atorvastatin",
+        "strength": "10 mg",
+        "frequency": "0-0-1",
+        "meal": "at bedtime",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-132",
+    "name": "Asha Reddy",
+    "age": 72,
+    "sex": "Male",
+    "bmi": 30.4,
+    "diabetes_duration_years": 1.7,
+    "hba1c": 6.9,
+    "fasting_glucose": 118.1,
+    "baseline_glucose": 132.2,
+    "baseline_hr": 70.5,
+    "baseline_hrv": 43.8,
+    "baseline_sleep_hours": 6.9,
+    "baseline_steps": 5417,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Hypothyroidism",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-133",
+    "name": "Swati Gupta",
+    "age": 55,
+    "sex": "Female",
+    "bmi": 32.5,
+    "diabetes_duration_years": 2.8,
+    "hba1c": 7.8,
+    "fasting_glucose": 131.7,
+    "baseline_glucose": 146.2,
+    "baseline_hr": 75.0,
+    "baseline_hrv": 42.8,
+    "baseline_sleep_hours": 6.2,
+    "baseline_steps": 9605,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Metabolic Syndrome",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Telmisartan",
+        "strength": "40 mg",
+        "frequency": "0-1-0",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Atorvastatin",
+        "strength": "10 mg",
+        "frequency": "0-0-1",
+        "meal": "at bedtime",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-134",
+    "name": "Ritu Gupta",
+    "age": 52,
+    "sex": "Male",
+    "bmi": 23.8,
+    "diabetes_duration_years": 11.9,
+    "hba1c": 7.7,
+    "fasting_glucose": 142.4,
+    "baseline_glucose": 160.1,
+    "baseline_hr": 75.6,
+    "baseline_hrv": 50.3,
+    "baseline_sleep_hours": 7.5,
+    "baseline_steps": 5058,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Metabolic Syndrome",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Dapagliflozin",
+        "strength": "10 mg",
+        "frequency": "1-0-0",
+        "meal": "morning",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-135",
+    "name": "Divya Reddy",
+    "age": 61,
+    "sex": "Female",
+    "bmi": 26.9,
+    "diabetes_duration_years": 8.1,
+    "hba1c": 7.3,
+    "fasting_glucose": 120.4,
+    "baseline_glucose": 138.5,
+    "baseline_hr": 69.7,
+    "baseline_hrv": 48.1,
+    "baseline_sleep_hours": 7.7,
+    "baseline_steps": 8640,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Metabolic Syndrome",
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Hypothyroidism",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-136",
+    "name": "Meera Iyer",
+    "age": 51,
+    "sex": "Female",
+    "bmi": 26.3,
+    "diabetes_duration_years": 11.8,
+    "hba1c": 7.5,
+    "fasting_glucose": 120.1,
+    "baseline_glucose": 128.9,
+    "baseline_hr": 69.3,
+    "baseline_hrv": 54.2,
+    "baseline_sleep_hours": 7.2,
+    "baseline_steps": 9016,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Dapagliflozin",
+        "strength": "10 mg",
+        "frequency": "1-0-0",
+        "meal": "morning",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-137",
+    "name": "Sneha Kulkarni",
+    "age": 51,
+    "sex": "Female",
+    "bmi": 34.1,
+    "diabetes_duration_years": 5.2,
+    "hba1c": 8.2,
+    "fasting_glucose": 137.3,
+    "baseline_glucose": 146.2,
+    "baseline_hr": 72.9,
+    "baseline_hrv": 45.4,
+    "baseline_sleep_hours": 7.3,
+    "baseline_steps": 5410,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Essential Hypertension",
+      "Dyslipidemia"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-138",
+    "name": "Pooja Iyer",
+    "age": 68,
+    "sex": "Female",
+    "bmi": 33.4,
+    "diabetes_duration_years": 5.8,
+    "hba1c": 7.9,
+    "fasting_glucose": 138.5,
+    "baseline_glucose": 154.5,
+    "baseline_hr": 65.1,
+    "baseline_hrv": 44.1,
+    "baseline_sleep_hours": 6.4,
+    "baseline_steps": 9076,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Hypothyroidism",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "850 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Glimepiride",
+        "strength": "1 mg",
+        "frequency": "1-0-0",
+        "meal": "before breakfast",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-139",
+    "name": "Divya Patel",
+    "age": 40,
+    "sex": "Male",
+    "bmi": 27.6,
+    "diabetes_duration_years": 11.5,
+    "hba1c": 7.9,
+    "fasting_glucose": 128.6,
+    "baseline_glucose": 140.6,
+    "baseline_hr": 69.1,
+    "baseline_hrv": 56.3,
+    "baseline_sleep_hours": 6.3,
+    "baseline_steps": 5900,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Mild Diabetic Neuropathy",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-140",
+    "name": "Mohan Verma",
+    "age": 49,
+    "sex": "Female",
+    "bmi": 23.6,
+    "diabetes_duration_years": 3.9,
+    "hba1c": 6.5,
+    "fasting_glucose": 115.7,
+    "baseline_glucose": 131.7,
+    "baseline_hr": 69.2,
+    "baseline_hrv": 47.5,
+    "baseline_sleep_hours": 7.3,
+    "baseline_steps": 8698,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Mild Diabetic Neuropathy",
+      "Essential Hypertension",
+      "Grade 1 Fatty Liver (NAFLD)"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-141",
+    "name": "Ritu Gupta",
+    "age": 45,
+    "sex": "Male",
+    "bmi": 25.5,
+    "diabetes_duration_years": 11.3,
+    "hba1c": 8.2,
+    "fasting_glucose": 149.1,
+    "baseline_glucose": 157.4,
+    "baseline_hr": 77.8,
+    "baseline_hrv": 55.4,
+    "baseline_sleep_hours": 7.1,
+    "baseline_steps": 9078,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Metabolic Syndrome",
+      "Dyslipidemia",
+      "Mild Diabetic Neuropathy",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-142",
+    "name": "Sneha Reddy",
+    "age": 61,
+    "sex": "Female",
+    "bmi": 26.6,
+    "diabetes_duration_years": 3.0,
+    "hba1c": 6.5,
+    "fasting_glucose": 107.3,
+    "baseline_glucose": 122.2,
+    "baseline_hr": 75.9,
+    "baseline_hrv": 44.5,
+    "baseline_sleep_hours": 7.4,
+    "baseline_steps": 4720,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Metabolic Syndrome",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-143",
+    "name": "Rajesh Kulkarni",
+    "age": 43,
+    "sex": "Female",
+    "bmi": 25.0,
+    "diabetes_duration_years": 6.7,
+    "hba1c": 7.5,
+    "fasting_glucose": 134.6,
+    "baseline_glucose": 153.2,
+    "baseline_hr": 67.7,
+    "baseline_hrv": 53.4,
+    "baseline_sleep_hours": 7.7,
+    "baseline_steps": 7128,
+    "has_hypertension": false,
+    "comorbidities": [],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-144",
+    "name": "Ritu Iyer",
+    "age": 59,
+    "sex": "Male",
+    "bmi": 29.2,
+    "diabetes_duration_years": 9.5,
+    "hba1c": 7.4,
+    "fasting_glucose": 141.6,
+    "baseline_glucose": 162.4,
+    "baseline_hr": 72.3,
+    "baseline_hrv": 40.5,
+    "baseline_sleep_hours": 7.5,
+    "baseline_steps": 7490,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Mild Diabetic Neuropathy",
+      "Hypothyroidism"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-145",
+    "name": "Divya Verma",
+    "age": 52,
+    "sex": "Female",
+    "bmi": 33.6,
+    "diabetes_duration_years": 8.9,
+    "hba1c": 8.6,
+    "fasting_glucose": 164.8,
+    "baseline_glucose": 176.7,
+    "baseline_hr": 78.2,
+    "baseline_hrv": 43.6,
+    "baseline_sleep_hours": 7.7,
+    "baseline_steps": 7546,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Hypothyroidism",
+      "Metabolic Syndrome"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Dapagliflozin",
+        "strength": "10 mg",
+        "frequency": "1-0-0",
+        "meal": "morning",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-146",
+    "name": "Asha Hegde",
+    "age": 68,
+    "sex": "Male",
+    "bmi": 29.1,
+    "diabetes_duration_years": 6.5,
+    "hba1c": 7.6,
+    "fasting_glucose": 134.8,
+    "baseline_glucose": 149.2,
+    "baseline_hr": 69.8,
+    "baseline_hrv": 38.2,
+    "baseline_sleep_hours": 7.3,
+    "baseline_steps": 7930,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Essential Hypertension",
+      "Metabolic Syndrome",
+      "Mild Diabetic Neuropathy"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-147",
+    "name": "Asha Verma",
+    "age": 42,
+    "sex": "Female",
+    "bmi": 24.3,
+    "diabetes_duration_years": 15.5,
+    "hba1c": 8.0,
+    "fasting_glucose": 132.5,
+    "baseline_glucose": 152.3,
+    "baseline_hr": 65.8,
+    "baseline_hrv": 58.1,
+    "baseline_sleep_hours": 6.2,
+    "baseline_steps": 5364,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-148",
+    "name": "Suresh Menon",
+    "age": 45,
+    "sex": "Female",
+    "bmi": 32.8,
+    "diabetes_duration_years": 13.9,
+    "hba1c": 9.1,
+    "fasting_glucose": 163.7,
+    "baseline_glucose": 176.1,
+    "baseline_hr": 76.9,
+    "baseline_hrv": 50.3,
+    "baseline_sleep_hours": 7.6,
+    "baseline_steps": 4715,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Dyslipidemia",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-149",
+    "name": "Mohan Desai",
+    "age": 50,
+    "sex": "Female",
+    "bmi": 30.9,
+    "diabetes_duration_years": 14.6,
+    "hba1c": 8.1,
+    "fasting_glucose": 152.1,
+    "baseline_glucose": 164.2,
+    "baseline_hr": 70.7,
+    "baseline_hrv": 43.0,
+    "baseline_sleep_hours": 7.0,
+    "baseline_steps": 7895,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Dyslipidemia"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-150",
+    "name": "Arun Iyer",
+    "age": 49,
+    "sex": "Female",
+    "bmi": 25.5,
+    "diabetes_duration_years": 10.7,
+    "hba1c": 7.7,
+    "fasting_glucose": 140.1,
+    "baseline_glucose": 160.7,
+    "baseline_hr": 72.4,
+    "baseline_hrv": 48.1,
+    "baseline_sleep_hours": 7.1,
+    "baseline_steps": 4943,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Hypothyroidism",
+      "Mild Diabetic Neuropathy"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Telmisartan",
+        "strength": "40 mg",
+        "frequency": "0-1-0",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Atorvastatin",
+        "strength": "10 mg",
+        "frequency": "0-0-1",
+        "meal": "at bedtime",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-151",
+    "name": "Meera Nair",
+    "age": 70,
+    "sex": "Female",
+    "bmi": 24.0,
+    "diabetes_duration_years": 7.0,
+    "hba1c": 7.0,
+    "fasting_glucose": 115.4,
+    "baseline_glucose": 133.2,
+    "baseline_hr": 64.4,
+    "baseline_hrv": 47.6,
+    "baseline_sleep_hours": 6.8,
+    "baseline_steps": 4548,
+    "has_hypertension": false,
+    "comorbidities": [],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Dapagliflozin",
+        "strength": "10 mg",
+        "frequency": "1-0-0",
+        "meal": "morning",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-152",
+    "name": "Meera Iyer",
+    "age": 54,
+    "sex": "Female",
+    "bmi": 30.2,
+    "diabetes_duration_years": 10.5,
+    "hba1c": 8.3,
+    "fasting_glucose": 154.6,
+    "baseline_glucose": 171.8,
+    "baseline_hr": 79.1,
+    "baseline_hrv": 47.3,
+    "baseline_sleep_hours": 7.6,
+    "baseline_steps": 8378,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Essential Hypertension",
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Metabolic Syndrome"
+    ],
+    "allergies": [
+      "Sulfa drugs"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "850 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Glimepiride",
+        "strength": "1 mg",
+        "frequency": "1-0-0",
+        "meal": "before breakfast",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-153",
+    "name": "Deepak Bose",
+    "age": 52,
+    "sex": "Male",
+    "bmi": 24.3,
+    "diabetes_duration_years": 9.3,
+    "hba1c": 8.0,
+    "fasting_glucose": 143.3,
+    "baseline_glucose": 164.1,
+    "baseline_hr": 78.9,
+    "baseline_hrv": 47.4,
+    "baseline_sleep_hours": 7.5,
+    "baseline_steps": 7391,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Essential Hypertension",
+      "Mild Diabetic Neuropathy"
+    ],
+    "allergies": [
+      "Penicillin"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-154",
+    "name": "Asha Singh",
+    "age": 45,
+    "sex": "Female",
+    "bmi": 32.1,
+    "diabetes_duration_years": 1.7,
+    "hba1c": 7.2,
+    "fasting_glucose": 123.8,
+    "baseline_glucose": 141.2,
+    "baseline_hr": 76.1,
+    "baseline_hrv": 48.8,
+    "baseline_sleep_hours": 7.5,
+    "baseline_steps": 10141,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Mild Diabetic Neuropathy",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-155",
+    "name": "Divya Menon",
+    "age": 44,
+    "sex": "Male",
+    "bmi": 30.2,
+    "diabetes_duration_years": 8.2,
+    "hba1c": 8.0,
+    "fasting_glucose": 146.2,
+    "baseline_glucose": 155.8,
+    "baseline_hr": 64.8,
+    "baseline_hrv": 44.3,
+    "baseline_sleep_hours": 7.8,
+    "baseline_steps": 5196,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Mild Diabetic Neuropathy",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-156",
+    "name": "Swati Bose",
+    "age": 66,
+    "sex": "Male",
+    "bmi": 30.5,
+    "diabetes_duration_years": 13.6,
+    "hba1c": 8.6,
+    "fasting_glucose": 166.7,
+    "baseline_glucose": 178.6,
+    "baseline_hr": 76.4,
+    "baseline_hrv": 38.4,
+    "baseline_sleep_hours": 6.9,
+    "baseline_steps": 5916,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Metabolic Syndrome",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-157",
+    "name": "Ramesh Desai",
+    "age": 45,
+    "sex": "Female",
+    "bmi": 30.6,
+    "diabetes_duration_years": 10.8,
+    "hba1c": 8.2,
+    "fasting_glucose": 134.9,
+    "baseline_glucose": 153.9,
+    "baseline_hr": 68.4,
+    "baseline_hrv": 44.7,
+    "baseline_sleep_hours": 7.1,
+    "baseline_steps": 4911,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Grade 1 Fatty Liver (NAFLD)"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "850 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Glimepiride",
+        "strength": "1 mg",
+        "frequency": "1-0-0",
+        "meal": "before breakfast",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-158",
+    "name": "Kavita Menon",
+    "age": 40,
+    "sex": "Male",
+    "bmi": 26.0,
+    "diabetes_duration_years": 15.8,
+    "hba1c": 8.9,
+    "fasting_glucose": 163.3,
+    "baseline_glucose": 182.5,
+    "baseline_hr": 66.0,
+    "baseline_hrv": 57.3,
+    "baseline_sleep_hours": 6.4,
+    "baseline_steps": 6649,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Essential Hypertension",
+      "Dyslipidemia"
+    ],
+    "allergies": [
+      "Aspirin"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Telmisartan",
+        "strength": "40 mg",
+        "frequency": "0-1-0",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Atorvastatin",
+        "strength": "10 mg",
+        "frequency": "0-0-1",
+        "meal": "at bedtime",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-159",
+    "name": "Pooja Desai",
+    "age": 70,
+    "sex": "Male",
+    "bmi": 28.0,
+    "diabetes_duration_years": 6.7,
+    "hba1c": 7.5,
+    "fasting_glucose": 130.3,
+    "baseline_glucose": 141.4,
+    "baseline_hr": 75.1,
+    "baseline_hrv": 44.1,
+    "baseline_sleep_hours": 7.7,
+    "baseline_steps": 8453,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-160",
+    "name": "Arun Bose",
+    "age": 71,
+    "sex": "Male",
+    "bmi": 31.1,
+    "diabetes_duration_years": 7.9,
+    "hba1c": 8.3,
+    "fasting_glucose": 144.7,
+    "baseline_glucose": 154.8,
+    "baseline_hr": 66.3,
+    "baseline_hrv": 40.8,
+    "baseline_sleep_hours": 7.1,
+    "baseline_steps": 8772,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Mild Diabetic Neuropathy",
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Dapagliflozin",
+        "strength": "10 mg",
+        "frequency": "1-0-0",
+        "meal": "morning",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-161",
+    "name": "Girish Desai",
+    "age": 67,
+    "sex": "Male",
+    "bmi": 28.1,
+    "diabetes_duration_years": 4.8,
+    "hba1c": 7.0,
+    "fasting_glucose": 119.3,
+    "baseline_glucose": 133.1,
+    "baseline_hr": 65.7,
+    "baseline_hrv": 41.8,
+    "baseline_sleep_hours": 7.3,
+    "baseline_steps": 6745,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Essential Hypertension",
+      "Hypothyroidism",
+      "Grade 1 Fatty Liver (NAFLD)"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-162",
+    "name": "Swati Reddy",
+    "age": 43,
+    "sex": "Male",
+    "bmi": 29.7,
+    "diabetes_duration_years": 9.6,
+    "hba1c": 7.7,
+    "fasting_glucose": 126.5,
+    "baseline_glucose": 139.5,
+    "baseline_hr": 76.0,
+    "baseline_hrv": 52.8,
+    "baseline_sleep_hours": 7.6,
+    "baseline_steps": 8826,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Metabolic Syndrome",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Dapagliflozin",
+        "strength": "10 mg",
+        "frequency": "1-0-0",
+        "meal": "morning",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-163",
+    "name": "Vikram Hegde",
+    "age": 46,
+    "sex": "Male",
+    "bmi": 26.9,
+    "diabetes_duration_years": 9.6,
+    "hba1c": 7.2,
+    "fasting_glucose": 119.4,
+    "baseline_glucose": 130.6,
+    "baseline_hr": 71.7,
+    "baseline_hrv": 51.3,
+    "baseline_sleep_hours": 7.4,
+    "baseline_steps": 8230,
+    "has_hypertension": false,
+    "comorbidities": [],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Dapagliflozin",
+        "strength": "10 mg",
+        "frequency": "1-0-0",
+        "meal": "morning",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-164",
+    "name": "Girish Gupta",
+    "age": 51,
+    "sex": "Male",
+    "bmi": 26.0,
+    "diabetes_duration_years": 12.6,
+    "hba1c": 8.5,
+    "fasting_glucose": 149.8,
+    "baseline_glucose": 160.3,
+    "baseline_hr": 66.6,
+    "baseline_hrv": 51.2,
+    "baseline_sleep_hours": 6.3,
+    "baseline_steps": 8945,
+    "has_hypertension": false,
+    "comorbidities": [],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Dapagliflozin",
+        "strength": "10 mg",
+        "frequency": "1-0-0",
+        "meal": "morning",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-165",
+    "name": "Pooja Kulkarni",
+    "age": 50,
+    "sex": "Female",
+    "bmi": 27.1,
+    "diabetes_duration_years": 12.0,
+    "hba1c": 8.3,
+    "fasting_glucose": 150.8,
+    "baseline_glucose": 160.0,
+    "baseline_hr": 64.9,
+    "baseline_hrv": 45.4,
+    "baseline_sleep_hours": 7.2,
+    "baseline_steps": 8543,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Mild Diabetic Neuropathy",
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Hypothyroidism",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-166",
+    "name": "Kishore Desai",
+    "age": 67,
+    "sex": "Female",
+    "bmi": 24.1,
+    "diabetes_duration_years": 11.3,
+    "hba1c": 7.8,
+    "fasting_glucose": 138.8,
+    "baseline_glucose": 151.1,
+    "baseline_hr": 68.0,
+    "baseline_hrv": 50.3,
+    "baseline_sleep_hours": 6.3,
+    "baseline_steps": 5726,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Metabolic Syndrome"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Telmisartan",
+        "strength": "40 mg",
+        "frequency": "0-1-0",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Atorvastatin",
+        "strength": "10 mg",
+        "frequency": "0-0-1",
+        "meal": "at bedtime",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-167",
+    "name": "Rajesh Hegde",
+    "age": 51,
+    "sex": "Female",
+    "bmi": 24.3,
+    "diabetes_duration_years": 9.2,
+    "hba1c": 7.1,
+    "fasting_glucose": 124.2,
+    "baseline_glucose": 141.6,
+    "baseline_hr": 70.4,
+    "baseline_hrv": 49.3,
+    "baseline_sleep_hours": 7.4,
+    "baseline_steps": 7117,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Telmisartan",
+        "strength": "40 mg",
+        "frequency": "0-1-0",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Atorvastatin",
+        "strength": "10 mg",
+        "frequency": "0-0-1",
+        "meal": "at bedtime",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-168",
+    "name": "Sanjay Singh",
+    "age": 58,
+    "sex": "Female",
+    "bmi": 24.1,
+    "diabetes_duration_years": 1.8,
+    "hba1c": 6.3,
+    "fasting_glucose": 112.6,
+    "baseline_glucose": 129.3,
+    "baseline_hr": 79.0,
+    "baseline_hrv": 52.8,
+    "baseline_sleep_hours": 6.3,
+    "baseline_steps": 9566,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Essential Hypertension",
+      "Mild Diabetic Neuropathy"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Telmisartan",
+        "strength": "40 mg",
+        "frequency": "0-1-0",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Atorvastatin",
+        "strength": "10 mg",
+        "frequency": "0-0-1",
+        "meal": "at bedtime",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-169",
+    "name": "Kavita Menon",
+    "age": 44,
+    "sex": "Male",
+    "bmi": 28.8,
+    "diabetes_duration_years": 3.2,
+    "hba1c": 7.1,
+    "fasting_glucose": 132.8,
+    "baseline_glucose": 145.7,
+    "baseline_hr": 77.1,
+    "baseline_hrv": 53.7,
+    "baseline_sleep_hours": 7.5,
+    "baseline_steps": 5917,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Dyslipidemia",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Dapagliflozin",
+        "strength": "10 mg",
+        "frequency": "1-0-0",
+        "meal": "morning",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-170",
+    "name": "Mohan Patel",
+    "age": 71,
+    "sex": "Male",
+    "bmi": 28.2,
+    "diabetes_duration_years": 9.7,
+    "hba1c": 7.9,
+    "fasting_glucose": 144.8,
+    "baseline_glucose": 165.1,
+    "baseline_hr": 75.6,
+    "baseline_hrv": 46.5,
+    "baseline_sleep_hours": 6.7,
+    "baseline_steps": 10325,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Essential Hypertension",
+      "Mild Diabetic Neuropathy",
+      "Grade 1 Fatty Liver (NAFLD)"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Telmisartan",
+        "strength": "40 mg",
+        "frequency": "0-1-0",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Atorvastatin",
+        "strength": "10 mg",
+        "frequency": "0-0-1",
+        "meal": "at bedtime",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-171",
+    "name": "Sanjay Sharma",
+    "age": 72,
+    "sex": "Female",
+    "bmi": 23.7,
+    "diabetes_duration_years": 8.2,
+    "hba1c": 6.7,
+    "fasting_glucose": 110.6,
+    "baseline_glucose": 122.6,
+    "baseline_hr": 75.6,
+    "baseline_hrv": 48.7,
+    "baseline_sleep_hours": 6.3,
+    "baseline_steps": 8064,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-172",
+    "name": "Sanjay Nair",
+    "age": 70,
+    "sex": "Female",
+    "bmi": 28.7,
+    "diabetes_duration_years": 15.4,
+    "hba1c": 8.5,
+    "fasting_glucose": 161.3,
+    "baseline_glucose": 181.0,
+    "baseline_hr": 81.7,
+    "baseline_hrv": 36.6,
+    "baseline_sleep_hours": 7.2,
+    "baseline_steps": 4734,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Hypothyroidism",
+      "Dyslipidemia"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Telmisartan",
+        "strength": "40 mg",
+        "frequency": "0-1-0",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Atorvastatin",
+        "strength": "10 mg",
+        "frequency": "0-0-1",
+        "meal": "at bedtime",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-173",
+    "name": "Meera Singh",
+    "age": 61,
+    "sex": "Female",
+    "bmi": 30.7,
+    "diabetes_duration_years": 2.3,
+    "hba1c": 7.3,
+    "fasting_glucose": 123.0,
+    "baseline_glucose": 135.6,
+    "baseline_hr": 74.0,
+    "baseline_hrv": 41.9,
+    "baseline_sleep_hours": 6.6,
+    "baseline_steps": 9609,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Metabolic Syndrome"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-174",
+    "name": "Vikram Reddy",
+    "age": 65,
+    "sex": "Female",
+    "bmi": 24.3,
+    "diabetes_duration_years": 11.8,
+    "hba1c": 7.2,
+    "fasting_glucose": 126.4,
+    "baseline_glucose": 143.4,
+    "baseline_hr": 69.9,
+    "baseline_hrv": 41.5,
+    "baseline_sleep_hours": 7.3,
+    "baseline_steps": 10182,
+    "has_hypertension": false,
+    "comorbidities": [],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-175",
+    "name": "Rajesh Reddy",
+    "age": 51,
+    "sex": "Female",
+    "bmi": 33.9,
+    "diabetes_duration_years": 6.5,
+    "hba1c": 8.2,
+    "fasting_glucose": 139.2,
+    "baseline_glucose": 161.2,
+    "baseline_hr": 66.8,
+    "baseline_hrv": 42.5,
+    "baseline_sleep_hours": 7.5,
+    "baseline_steps": 7546,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Telmisartan",
+        "strength": "40 mg",
+        "frequency": "0-1-0",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Atorvastatin",
+        "strength": "10 mg",
+        "frequency": "0-0-1",
+        "meal": "at bedtime",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-176",
+    "name": "Ritu Verma",
+    "age": 49,
+    "sex": "Female",
+    "bmi": 24.7,
+    "diabetes_duration_years": 13.6,
+    "hba1c": 8.3,
+    "fasting_glucose": 156.8,
+    "baseline_glucose": 167.1,
+    "baseline_hr": 71.9,
+    "baseline_hrv": 49.9,
+    "baseline_sleep_hours": 7.3,
+    "baseline_steps": 5925,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Hypothyroidism",
+      "Mild Diabetic Neuropathy",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "850 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Glimepiride",
+        "strength": "1 mg",
+        "frequency": "1-0-0",
+        "meal": "before breakfast",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-177",
+    "name": "Meera Hegde",
+    "age": 63,
+    "sex": "Male",
+    "bmi": 30.7,
+    "diabetes_duration_years": 9.8,
+    "hba1c": 7.9,
+    "fasting_glucose": 147.0,
+    "baseline_glucose": 165.9,
+    "baseline_hr": 73.1,
+    "baseline_hrv": 41.5,
+    "baseline_sleep_hours": 6.5,
+    "baseline_steps": 5698,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Essential Hypertension",
+      "Mild Diabetic Neuropathy"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Telmisartan",
+        "strength": "40 mg",
+        "frequency": "0-1-0",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Atorvastatin",
+        "strength": "10 mg",
+        "frequency": "0-0-1",
+        "meal": "at bedtime",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-178",
+    "name": "Priya Desai",
+    "age": 45,
+    "sex": "Female",
+    "bmi": 31.7,
+    "diabetes_duration_years": 5.5,
+    "hba1c": 8.1,
+    "fasting_glucose": 135.9,
+    "baseline_glucose": 150.0,
+    "baseline_hr": 81.0,
+    "baseline_hrv": 45.1,
+    "baseline_sleep_hours": 6.9,
+    "baseline_steps": 6597,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-179",
+    "name": "Kavita Singh",
+    "age": 63,
+    "sex": "Male",
+    "bmi": 25.4,
+    "diabetes_duration_years": 6.1,
+    "hba1c": 6.7,
+    "fasting_glucose": 119.3,
+    "baseline_glucose": 132.0,
+    "baseline_hr": 66.6,
+    "baseline_hrv": 40.5,
+    "baseline_sleep_hours": 7.7,
+    "baseline_steps": 7334,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Mild Diabetic Neuropathy",
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "Penicillin"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-180",
+    "name": "Vikram Bose",
+    "age": 58,
+    "sex": "Male",
+    "bmi": 25.6,
+    "diabetes_duration_years": 3.3,
+    "hba1c": 6.5,
+    "fasting_glucose": 113.0,
+    "baseline_glucose": 129.7,
+    "baseline_hr": 65.1,
+    "baseline_hrv": 50.9,
+    "baseline_sleep_hours": 7.0,
+    "baseline_steps": 7716,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Hypothyroidism"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "850 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Glimepiride",
+        "strength": "1 mg",
+        "frequency": "1-0-0",
+        "meal": "before breakfast",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-181",
+    "name": "Rajesh Reddy",
+    "age": 66,
+    "sex": "Male",
+    "bmi": 25.0,
+    "diabetes_duration_years": 11.2,
+    "hba1c": 7.8,
+    "fasting_glucose": 134.6,
+    "baseline_glucose": 155.9,
+    "baseline_hr": 73.8,
+    "baseline_hrv": 48.0,
+    "baseline_sleep_hours": 7.0,
+    "baseline_steps": 4622,
+    "has_hypertension": false,
+    "comorbidities": [],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-182",
+    "name": "Suresh Kumar",
+    "age": 44,
+    "sex": "Female",
+    "bmi": 26.8,
+    "diabetes_duration_years": 12.1,
+    "hba1c": 8.1,
+    "fasting_glucose": 151.5,
+    "baseline_glucose": 169.8,
+    "baseline_hr": 70.0,
+    "baseline_hrv": 46.4,
+    "baseline_sleep_hours": 7.1,
+    "baseline_steps": 9381,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Hypothyroidism",
+      "Mild Diabetic Neuropathy",
+      "Dyslipidemia",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "Sulfa drugs"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "850 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Glimepiride",
+        "strength": "1 mg",
+        "frequency": "1-0-0",
+        "meal": "before breakfast",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-183",
+    "name": "Sunita Joshi",
+    "age": 42,
+    "sex": "Male",
+    "bmi": 32.1,
+    "diabetes_duration_years": 14.3,
+    "hba1c": 8.4,
+    "fasting_glucose": 146.6,
+    "baseline_glucose": 160.2,
+    "baseline_hr": 78.7,
+    "baseline_hrv": 48.6,
+    "baseline_sleep_hours": 6.3,
+    "baseline_steps": 8381,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Telmisartan",
+        "strength": "40 mg",
+        "frequency": "0-1-0",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Atorvastatin",
+        "strength": "10 mg",
+        "frequency": "0-0-1",
+        "meal": "at bedtime",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-184",
+    "name": "Shalini Bose",
+    "age": 68,
+    "sex": "Female",
+    "bmi": 33.3,
+    "diabetes_duration_years": 7.1,
+    "hba1c": 8.5,
+    "fasting_glucose": 153.4,
+    "baseline_glucose": 168.4,
+    "baseline_hr": 80.6,
+    "baseline_hrv": 39.3,
+    "baseline_sleep_hours": 7.5,
+    "baseline_steps": 8862,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Telmisartan",
+        "strength": "40 mg",
+        "frequency": "0-1-0",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Atorvastatin",
+        "strength": "10 mg",
+        "frequency": "0-0-1",
+        "meal": "at bedtime",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-185",
+    "name": "Amit Menon",
+    "age": 59,
+    "sex": "Female",
+    "bmi": 28.0,
+    "diabetes_duration_years": 11.9,
+    "hba1c": 7.6,
+    "fasting_glucose": 132.3,
+    "baseline_glucose": 146.6,
+    "baseline_hr": 77.1,
+    "baseline_hrv": 50.0,
+    "baseline_sleep_hours": 7.2,
+    "baseline_steps": 7109,
+    "has_hypertension": false,
+    "comorbidities": [],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-186",
+    "name": "Arun Reddy",
+    "age": 41,
+    "sex": "Male",
+    "bmi": 24.5,
+    "diabetes_duration_years": 10.3,
+    "hba1c": 7.9,
+    "fasting_glucose": 128.7,
+    "baseline_glucose": 137.6,
+    "baseline_hr": 78.0,
+    "baseline_hrv": 52.4,
+    "baseline_sleep_hours": 6.8,
+    "baseline_steps": 7903,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Metabolic Syndrome",
+      "Hypothyroidism",
+      "Mild Diabetic Neuropathy",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-187",
+    "name": "Kishore Reddy",
+    "age": 60,
+    "sex": "Female",
+    "bmi": 30.4,
+    "diabetes_duration_years": 5.1,
+    "hba1c": 7.0,
+    "fasting_glucose": 126.4,
+    "baseline_glucose": 141.4,
+    "baseline_hr": 71.0,
+    "baseline_hrv": 44.3,
+    "baseline_sleep_hours": 6.6,
+    "baseline_steps": 6061,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Hypothyroidism",
+      "Mild Diabetic Neuropathy",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "Penicillin"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "850 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Glimepiride",
+        "strength": "1 mg",
+        "frequency": "1-0-0",
+        "meal": "before breakfast",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-188",
+    "name": "Manoj Rao",
+    "age": 45,
+    "sex": "Female",
+    "bmi": 32.3,
+    "diabetes_duration_years": 15.5,
+    "hba1c": 9.4,
+    "fasting_glucose": 177.5,
+    "baseline_glucose": 195.4,
+    "baseline_hr": 73.9,
+    "baseline_hrv": 45.5,
+    "baseline_sleep_hours": 6.7,
+    "baseline_steps": 5445,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Metabolic Syndrome"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Dapagliflozin",
+        "strength": "10 mg",
+        "frequency": "1-0-0",
+        "meal": "morning",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-189",
+    "name": "Ramesh Verma",
+    "age": 71,
+    "sex": "Male",
+    "bmi": 23.1,
+    "diabetes_duration_years": 9.5,
+    "hba1c": 7.2,
+    "fasting_glucose": 132.5,
+    "baseline_glucose": 148.2,
+    "baseline_hr": 75.0,
+    "baseline_hrv": 39.6,
+    "baseline_sleep_hours": 6.7,
+    "baseline_steps": 10497,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Mild Diabetic Neuropathy",
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "850 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Glimepiride",
+        "strength": "1 mg",
+        "frequency": "1-0-0",
+        "meal": "before breakfast",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-190",
+    "name": "Mohan Patel",
+    "age": 69,
+    "sex": "Female",
+    "bmi": 30.8,
+    "diabetes_duration_years": 6.5,
+    "hba1c": 8.1,
+    "fasting_glucose": 151.7,
+    "baseline_glucose": 168.7,
+    "baseline_hr": 67.3,
+    "baseline_hrv": 45.4,
+    "baseline_sleep_hours": 6.9,
+    "baseline_steps": 9964,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Dapagliflozin",
+        "strength": "10 mg",
+        "frequency": "1-0-0",
+        "meal": "morning",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-191",
+    "name": "Ananya Rao",
+    "age": 54,
+    "sex": "Female",
+    "bmi": 26.8,
+    "diabetes_duration_years": 15.1,
+    "hba1c": 8.8,
+    "fasting_glucose": 168.7,
+    "baseline_glucose": 180.2,
+    "baseline_hr": 75.4,
+    "baseline_hrv": 48.5,
+    "baseline_sleep_hours": 6.4,
+    "baseline_steps": 6316,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Dapagliflozin",
+        "strength": "10 mg",
+        "frequency": "1-0-0",
+        "meal": "morning",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-192",
+    "name": "Asha Menon",
+    "age": 41,
+    "sex": "Male",
+    "bmi": 23.8,
+    "diabetes_duration_years": 15.3,
+    "hba1c": 8.4,
+    "fasting_glucose": 145.4,
+    "baseline_glucose": 156.4,
+    "baseline_hr": 74.3,
+    "baseline_hrv": 55.6,
+    "baseline_sleep_hours": 6.2,
+    "baseline_steps": 9833,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Mild Diabetic Neuropathy",
+      "Dyslipidemia",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-193",
+    "name": "Amit Sharma",
+    "age": 68,
+    "sex": "Male",
+    "bmi": 27.7,
+    "diabetes_duration_years": 8.2,
+    "hba1c": 7.4,
+    "fasting_glucose": 120.4,
+    "baseline_glucose": 140.5,
+    "baseline_hr": 69.7,
+    "baseline_hrv": 47.8,
+    "baseline_sleep_hours": 6.8,
+    "baseline_steps": 6892,
+    "has_hypertension": false,
+    "comorbidities": [],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Telmisartan",
+        "strength": "40 mg",
+        "frequency": "0-1-0",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Atorvastatin",
+        "strength": "10 mg",
+        "frequency": "0-0-1",
+        "meal": "at bedtime",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-194",
+    "name": "Priya Gupta",
+    "age": 55,
+    "sex": "Female",
+    "bmi": 24.4,
+    "diabetes_duration_years": 2.2,
+    "hba1c": 7.1,
+    "fasting_glucose": 131.8,
+    "baseline_glucose": 145.7,
+    "baseline_hr": 81.3,
+    "baseline_hrv": 53.4,
+    "baseline_sleep_hours": 7.5,
+    "baseline_steps": 10102,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Dyslipidemia"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-195",
+    "name": "Manoj Hegde",
+    "age": 71,
+    "sex": "Female",
+    "bmi": 23.1,
+    "diabetes_duration_years": 15.2,
+    "hba1c": 8.1,
+    "fasting_glucose": 156.4,
+    "baseline_glucose": 167.4,
+    "baseline_hr": 70.4,
+    "baseline_hrv": 39.2,
+    "baseline_sleep_hours": 7.0,
+    "baseline_steps": 9794,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Metabolic Syndrome",
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-196",
+    "name": "Suresh Reddy",
+    "age": 63,
+    "sex": "Female",
+    "bmi": 23.3,
+    "diabetes_duration_years": 2.2,
+    "hba1c": 6.6,
+    "fasting_glucose": 108.3,
+    "baseline_glucose": 120.3,
+    "baseline_hr": 71.0,
+    "baseline_hrv": 46.3,
+    "baseline_sleep_hours": 7.1,
+    "baseline_steps": 9451,
+    "has_hypertension": false,
+    "comorbidities": [],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "850 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Glimepiride",
+        "strength": "1 mg",
+        "frequency": "1-0-0",
+        "meal": "before breakfast",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-197",
+    "name": "Arun Reddy",
+    "age": 63,
+    "sex": "Female",
+    "bmi": 31.6,
+    "diabetes_duration_years": 4.4,
+    "hba1c": 7.4,
+    "fasting_glucose": 129.3,
+    "baseline_glucose": 137.9,
+    "baseline_hr": 66.5,
+    "baseline_hrv": 40.1,
+    "baseline_sleep_hours": 7.0,
+    "baseline_steps": 7241,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Metabolic Syndrome",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Dapagliflozin",
+        "strength": "10 mg",
+        "frequency": "1-0-0",
+        "meal": "morning",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-198",
+    "name": "Arun Joshi",
+    "age": 72,
+    "sex": "Female",
+    "bmi": 32.5,
+    "diabetes_duration_years": 9.2,
+    "hba1c": 8.3,
+    "fasting_glucose": 144.1,
+    "baseline_glucose": 163.5,
+    "baseline_hr": 70.6,
+    "baseline_hrv": 40.1,
+    "baseline_sleep_hours": 7.8,
+    "baseline_steps": 8002,
+    "has_hypertension": false,
+    "comorbidities": [],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Dapagliflozin",
+        "strength": "10 mg",
+        "frequency": "1-0-0",
+        "meal": "morning",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "500 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-199",
+    "name": "Mohan Iyer",
+    "age": 70,
+    "sex": "Male",
+    "bmi": 24.8,
+    "diabetes_duration_years": 10.6,
+    "hba1c": 7.8,
+    "fasting_glucose": 146.6,
+    "baseline_glucose": 156.7,
+    "baseline_hr": 76.3,
+    "baseline_hrv": 38.4,
+    "baseline_sleep_hours": 7.7,
+    "baseline_steps": 5159,
+    "has_hypertension": true,
+    "comorbidities": [
+      "Mild Diabetic Neuropathy",
+      "Dyslipidemia",
+      "Essential Hypertension"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Sitagliptin",
+        "strength": "100 mg",
+        "frequency": "1-0-0",
+        "meal": "with breakfast",
+        "verified": true
+      },
+      {
+        "drug_name": "Metformin",
+        "strength": "1000 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  },
+  {
+    "patient_id": "PT-200",
+    "name": "Pooja Hegde",
+    "age": 48,
+    "sex": "Male",
+    "bmi": 28.9,
+    "diabetes_duration_years": 9.6,
+    "hba1c": 8.4,
+    "fasting_glucose": 150.8,
+    "baseline_glucose": 164.1,
+    "baseline_hr": 81.2,
+    "baseline_hrv": 48.3,
+    "baseline_sleep_hours": 7.1,
+    "baseline_steps": 7777,
+    "has_hypertension": false,
+    "comorbidities": [
+      "Grade 1 Fatty Liver (NAFLD)",
+      "Mild Diabetic Neuropathy"
+    ],
+    "allergies": [
+      "None"
+    ],
+    "medication_regimen": [
+      {
+        "drug_name": "Metformin",
+        "strength": "850 mg",
+        "frequency": "1-0-1",
+        "meal": "after food",
+        "verified": true
+      },
+      {
+        "drug_name": "Glimepiride",
+        "strength": "1 mg",
+        "frequency": "1-0-0",
+        "meal": "before breakfast",
+        "verified": true
+      }
+    ],
+    "data_source": "Synthea-calibrated metabolic cohort generator",
+    "synthetic": true
+  }
+]

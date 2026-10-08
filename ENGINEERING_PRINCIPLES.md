@@ -1,6 +1,6 @@
 # Engineering Principles
 
-These twelve core engineering principles govern all architectural, design, algorithmic, and operational decisions for the multimodal medication accessibility system. Every pull request, design document, and automated test must comply with these tenets.
+These twelve core engineering principles govern all architectural, design, algorithmic, safety, and operational decisions for the MedTwin AI Digital Twin platform. Every pull request, design document, and automated test must comply with these tenets.
 
 ---
 

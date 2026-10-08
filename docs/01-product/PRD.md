@@ -1,7 +1,7 @@
 # Product Requirements Document (PRD)
 
-**Project Name**: Multimodal Medication Accessibility System  
-**Initiative**: Bharat Builds / First Commit in collaboration with AWS  
+**Project Name**: MedTwin AI: Medication-Aware Healthcare Digital Twin (Medication Verification Subsystem)  
+**Initiative**: Happiest Health – Reimagining and Reforming Healthcare in India Summit 2026 PoC  
 **Document Version**: 1.0.0 (Phase 0 Freeze)  
 **Status**: Approved for Architecture Baseline  
 

@@ -31,8 +31,8 @@ app = FastAPI(
     title=settings.APP_NAME,
     version="0.1.0",
     description=(
-        "Production API for Multimodal Medication Accessibility System. "
-        "Digitizes handwritten prescriptions with safety-first deterministic validation."
+        "MedTwin AI: A Medication-Aware Digital Twin for Personalized Adverse Health Event Forecasting. "
+        "Fusing static EHR, verified medication regimens, and dynamic wearable time-series for Happiest Health 2026."
     ),
     lifespan=lifespan,
     docs_url="/docs" if settings.DEBUG else None,

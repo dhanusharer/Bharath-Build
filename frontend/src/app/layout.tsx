@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Superpower — Bioluminescent Health Command Center | Bharat Builds",
+  title: "MedTwin AI — Medication-Aware Healthcare Digital Twin | Happiest Health 2026",
   description:
-    "Multimodal clinical prescription intelligence. Instant handwritten digitization, real-time vernacular voice AI in Hindi and Kannada, with deterministic clinical fail-closed safety.",
+    "A Safety-First Digital Twin combining EHR, verified medication regimens and real-time physiological signals for proactive 2-hour adverse health event forecasting. Happiest Health 2026 Proof-of-Concept.",
 };
 
 export default function RootLayout({

@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     )
 
     # Core Application Settings
-    APP_NAME: str = "Multimodal Medication Accessibility API"
+    APP_NAME: str = "MedTwin AI: Medication-Aware Healthcare Digital Twin API"
     APP_ENV: str = "local"
     DEBUG: bool = True
     PORT: int = 8000

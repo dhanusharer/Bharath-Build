@@ -1,8 +1,8 @@
 # Contributing Guidelines
 
-Thank you for contributing to the Multimodal Medication Accessibility System for Bharat Builds / First Commit in collaboration with AWS. 
+Thank you for contributing to MedTwin AI: A Medication-Aware Digital Twin for Personalized Adverse Health Event Forecasting, developed for the Happiest Health – Reimagining and Reforming Healthcare in India Summit 2026 PoC. 
 
-We maintain strict safety, quality, and architectural standards because this software operates in a healthcare accessibility domain where errors can impact human well-being.
+We maintain strict clinical safety, deterministic validation, and architectural standards because this software forecasts near-term health risk events.
 
 ---
 

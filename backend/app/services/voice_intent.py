@@ -22,6 +22,8 @@ class VoiceIntentType(StrEnum):
     DURATION = "DURATION"
     LIST_MEDICATIONS = "LIST_MEDICATIONS"
     SPECIFIC_DRUG = "SPECIFIC_DRUG"
+    GLUCOSE_TREND = "GLUCOSE_TREND"
+    RISK_SCORE = "RISK_SCORE"
     UNKNOWN = "UNKNOWN"
 
 
@@ -37,6 +39,29 @@ class VoiceIntentResult:
 
 # Multilingual intent pattern dictionaries (English, Hindi, Kannada romanized & native)
 INTENT_PATTERNS: list[tuple[VoiceIntentType, list[str]]] = [
+    (
+        VoiceIntentType.GLUCOSE_TREND,
+        [
+            r"\bglucose\b",
+            r"\bsugar\s*trend\b",
+            r"\bglucose\s*trend\b",
+            r"ग्लूकोज",
+            r"शुगर\s*ट्रेंड",
+            r"ಗ್ಲೂಕೋಸ್",
+            r"glucose\s*trend\s*ತೋರಿಸಿ",
+        ],
+    ),
+    (
+        VoiceIntentType.RISK_SCORE,
+        [
+            r"\brisk\b",
+            r"\brisk\s*score\b",
+            r"\byestu\s*ide\b",
+            r"जोखिम",
+            r"ರಿಸ್ಕ್",
+            r"ಅಪಾಯ",
+        ],
+    ),
     (
         VoiceIntentType.NIGHT_MEDICINE,
         [
