@@ -22,6 +22,7 @@ India faces a severe metabolic disease crisis, with over 101 million individuals
 
 ---
 
+
 ## Healthcare Use Case
 
 * **Condition**: **Type 2 Diabetes Mellitus & Metabolic Regulation**
